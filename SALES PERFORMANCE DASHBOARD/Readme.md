@@ -2,7 +2,7 @@
 
 ![App Screenshot](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/SALES%20PERFORMANCE%20DASHBOARD/Sales%20Performance%20dashboard.jpg?raw=true)
 
-##Bussines Requirements
+#Bussines Requirements
 
 Adventure Works is a large, multinational manufacturing company that produces and distributes bicycles, parts, and accessories for commercial 
 markets in North America, Europe, and Asia. The company employs 500 workers. 
