@@ -3,7 +3,7 @@
 
 ## Live Dashboard Link
 
-![dashboard]("https://app.powerbi.com/view?r=eyJrIjoiN2Q4N2E5MTItYzllZS00ZTVmLTg0M2QtZTY3YWFjMDU5ZDUzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" frameborder="0" allowFullScreen="true">)
+[dashboard]("https://app.powerbi.com/view?r=eyJrIjoiN2Q4N2E5MTItYzllZS00ZTVmLTg0M2QtZTY3YWFjMDU5ZDUzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" frameborder="0" allowFullScreen="true">)
 
 
 
