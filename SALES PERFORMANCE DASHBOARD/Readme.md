@@ -8,7 +8,7 @@ Adventure Works is a large, multinational manufacturing company that produces an
 markets in North America, Europe, and Asia. The company employs 500 workers. 
 Additionally, Adventure Works employs several regional sales teams throughout its market base
 
-Business Questions
+### Business Questions
 1.	What is the current market demand for our products and how does it vary by region?
 
 2.	What is our current sales performance and how does it compare to past performance and industry benchmarks
