@@ -1,5 +1,13 @@
 # Sales Performance Analysis Dashboard
 
+
+## Live Dashboard Link
+
+![dashboard](<iframe title="Sales_Data_Dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiN2Q4N2E5MTItYzllZS00ZTVmLTg0M2QtZTY3YWFjMDU5ZDUzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" frameborder="0" allowFullScreen="true"></iframe>)
+
+
+
+
 ![App Screenshot](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/SALES%20PERFORMANCE%20DASHBOARD/Sales%20Performance%20dashboard.jpg?raw=true)
 
 ## Bussines Requirements
