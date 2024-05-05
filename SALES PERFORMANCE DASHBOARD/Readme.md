@@ -5,8 +5,13 @@
 
 [Dashboard Link](https://app.powerbi.com/view?r=eyJrIjoiN2Q4N2E5MTItYzllZS00ZTVmLTg0M2QtZTY3YWFjMDU5ZDUzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 
+
+(https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/58291209-62a8-4d53-b6e7-920f55be26c2)
+
+
 ## Insights from the Analysis 
 [Insights Document](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/SALES%20PERFORMANCE%20DASHBOARD/Insights.pdf)
+
 
 
 
