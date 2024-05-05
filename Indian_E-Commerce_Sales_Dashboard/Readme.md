@@ -2,6 +2,8 @@
 
 An Indian E-Commerce Sales Dashboard in Power BI can act as a powerful tool for businesses to track, analyze, and gain insights into their online sales performance.
 
+## Dashboard Demo
+
 https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/45196b00-9b5f-45ff-b80a-82ef12ccc572
 
 
