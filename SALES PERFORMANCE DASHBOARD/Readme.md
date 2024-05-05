@@ -7,7 +7,7 @@
 
 
 
-## Dasboard Demo
+## Dashboard Demo
 https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/58291209-62a8-4d53-b6e7-920f55be26c2
 
 
