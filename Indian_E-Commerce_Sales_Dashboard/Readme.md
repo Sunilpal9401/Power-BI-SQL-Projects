@@ -7,11 +7,11 @@ https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/45196b00-9
 
 # Data_source and Pre-Processing Steps
 1. Used Json file format for data.
-2.Raw data was in Excel workbook as well.
-3.Used MySQL for exploartion, cleaning and transformation of data.
-4.Imported Json as well as cleaned data to power Bi.
-5.Deleted unwanted columns which were not needed for reporting in power query.
-6.Created multiple Measures and columns using DAX.
-7.Finally created interactive Dashboard in Power BI.
+2. Raw data was in Excel workbook as well.
+3. Used MySQL for exploartion, cleaning and transformation of data.
+4. Imported Json as well as cleaned data to power Bi.
+5. Deleted unwanted columns which were not needed for reporting in power query.
+6. Created multiple Measures and columns using DAX.
+7. Finally created interactive Dashboard in Power BI.
 
 ![](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/Indian_E-Commerce_Sales_Dashboard/Indian%20ECommerce.jpg?raw=true)
