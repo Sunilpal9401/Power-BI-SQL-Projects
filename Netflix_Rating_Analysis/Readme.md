@@ -2,11 +2,20 @@
 # Netflix Rating Analysis with Power BI Project Overview
 This project utilizes Microsoft's Power BI for data visualization and analysis, focusing on Netflix content ratings. Here's a breakdown of the key aspects:
 
+
 ## Objective:
 
 Uncover insights from Netflix content ratings data
 Generate interactive visualizations for stakeholders (e.g., Netflix decision-makers)
 
+## Live DashBoard Link
+[Live DashBoard Link](https://app.powerbi.com/view?r=eyJrIjoiYjljODQ4YjItMGM1Mi00Y2NkLTliMTMtODA3MjY0ZGQ4NjI1IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+
+
+
+## DashBoard Demo
+
+https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/32d076a2-c759-4ec6-9cbf-daf079ea78d1
 
 ## Data Source:
 
