@@ -19,7 +19,7 @@ https://github.com/Sunilpal9401/Power-BI-SQL-Projects/assets/62985832/32d076a2-c
 
 ## Data Source:
 
-Public datasets from Kaggle are used for this project.
+Public datasets from [Kaggle](https://www.kaggle.com/datasets/snehaanbhawal/netflix-tv-shows-and-movie-list) are used for this project.
 
 ## Analysis Areas:
 
