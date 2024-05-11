@@ -32,15 +32,17 @@ Public datasets from [Kaggle](https://www.kaggle.com/datasets/snehaanbhawal/netf
 * Informed Content Acquisition: Insights can guide content acquisition strategies, focusing on ratings that resonate with viewers.
 * Genre-Specific Targeting: Understanding genre-rating correlations can aid in targeted marketing efforts.
 * Content Creation Strategy: Findings might influence commissioning or producing originals with specific rating categories.
-* 
+ 
 ## Tools & Technologies:
 
 * Power BI Desktop: The primary platform for data manipulation, modeling, and visualization creation.
 * Power Query (or Excel): Used for data cleaning and pre-processing steps.
 * DAX (Data Analysis Expressions): For creating calculations and metrics within Power BI.
 
-##Deliverables:
+## Deliverables:
 
 * Interactive Power BI Dashboard: Showcasing key findings through charts, graphs, and other visual elements.
 * Actionable Recommendations: Based on the analysis, providing suggestions to optimize content strategy based on ratings data.
 *Overall, this project aims to leverage Power BI to transform Netflix rating data into actionable insights, informing content decisions and potentially enhancing user engagement.
+
+## Insights From the project are as follows :
