@@ -1,3 +1,4 @@
+```sql
 DROP VIEW IF EXISTS cube_customer_cohort_monthly;
 GO
 
@@ -100,3 +101,4 @@ ORDER BY
   ry.month_number,
   product_category,
   country
+```
