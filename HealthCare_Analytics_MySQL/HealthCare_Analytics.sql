@@ -1,5 +1,3 @@
-```sql
-    
 
 --select * from INFORMATION_SCHEMA.COLUMNS
 --where table_name = 'Healcare_Analytics'
@@ -212,5 +210,3 @@ WITH DoctorAppointments AS (
     FROM DoctorAppointments DA
     INNER JOIN Doctors D ON DA.DoctorID = D.DoctorID
     ORDER BY DA.NumberOfAppointments DESC
-
-```
