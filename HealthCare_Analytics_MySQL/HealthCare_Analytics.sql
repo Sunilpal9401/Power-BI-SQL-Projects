@@ -1,4 +1,4 @@
-
+```sql
     
 
 --select * from INFORMATION_SCHEMA.COLUMNS
@@ -213,3 +213,4 @@ WITH DoctorAppointments AS (
     INNER JOIN Doctors D ON DA.DoctorID = D.DoctorID
     ORDER BY DA.NumberOfAppointments DESC
 
+```
