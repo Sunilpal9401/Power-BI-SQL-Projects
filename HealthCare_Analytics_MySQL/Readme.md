@@ -1,7 +1,5 @@
 
-
-
-#Cleaning the Appointments Table Data
+Cleaning the Appointments Table Data
 ```sql
 select *, datepart(year,appointmentdate)Appointment_Year,
 datename(month, appointmentdate)Appointment_Month,
@@ -54,49 +52,67 @@ from Patients
 
 ```
 ---Exploratory Data Analysis
---Retrieve data from one or more tables.
----Select All Columns from a Table
+--Retrieve data from one or more tables
+
+Select All Columns from a Table
+```sql
 SELECT * FROM Patients;
+```
 
----Select Specific Columns from a Table
+
+Select Specific Columns from a Table
+```sql
 SELECT FirstName, LastName  FROM Doctors;
+```
 
---Sorts the result set in ascending or descending order.
+
+Sorts the result set in ascending or descending order.
+```sql
 SELECT * FROM Patients ORDER BY LastName ASC;
+```
 
---Groups rows that have the same values in specified columns into summary rows.
---Question: Count the number of patients by gender.
+Question: Count the number of patients by gender.
+```sql
 SELECT Gender, COUNT(*) AS NumberOfPatients
 FROM Patients
 GROUP BY Gender;
-
---Getting total, average, maximum and minimum of bills
+```
+Getting total, average, maximum and minimum of bills
+```sql
 SELECT SUM(Amount) AS TotalBilling FROM Billing;
 SELECT Avg(Amount) AS AvgBilling FROM Billing;
 SELECT Max(Amount) AS HighestBilling FROM Billing;
 SELECT Min(Amount) AS LowestBilling FROM Billing;
+```
 
---Performing Data Analysis questions
 
---1.Question: Retrieve patients who have never had an appointment. names for all appointments.
+Performing Data Analysis questions
+
+1.Question: Retrieve patients who have never had an appointment. names for all appointments.
+```sql
 SELECT P.FirstName, P.LastName
 FROM Patients P
 left JOIN Appointments A ON P.PatientID = A.PatientID
 WHERE A.AppointmentDate IS NULL;
+```
 
---2.Question: Retrieve patients' names along with their doctors' names for all appointments.
+
+2.Question: Retrieve patients' names along with their doctors' names for all appointments.
+```sql
 SELECT P.FirstName AS PatientFirstName, P.LastName AS PatientLastName, D.FirstName AS DoctorFirstName, D.LastName AS DoctorLastName
 FROM Appointments A
 INNER JOIN Patients P ON A.PatientID = P.PatientID
 INNER JOIN Doctors D ON A.DoctorID = D.DoctorID;
-
---3.Question: Retrieve names from both the Doctors and Patients tables.
+```
+```sql
+3.Question: Retrieve names from both the Doctors and Patients tables.
 SELECT FirstName, LastName, concat(FirstName, ' ', LastName)FullName FROM Doctors
 UNION
 SELECT FirstName, LastName, concat(FirstName, ' ', LastName)FullName FROM Patients;
+```
 
-
---4.Question: Retrieve doctors and the number of patients they have seen.
+4.Question: Retrieve doctors and the number of patients they have seen.
+```sql
 WITH PatientCounts AS (
     SELECT DoctorID, COUNT(*) AS NumberOfPatients
     FROM Appointments
@@ -105,40 +121,49 @@ WITH PatientCounts AS (
 SELECT Concat(D.FirstName,' ',D.LastName) as DoctorName, P.NumberOfPatients
 FROM Doctors D
 JOIN PatientCounts P ON D.DoctorID = P.DoctorID;
-
---5.Question: Retrieve doctors who have more than 10 appointments.
+```
+5.Question: Retrieve doctors who have more than 10 appointments.
+```sql
 SELECT DoctorID, COUNT(*) AS AppointmentCount
 FROM Appointments
 GROUP BY DoctorID
 HAVING COUNT(*) > 10;
+```
 
---6.Question: Assign row numbers to billing records ordered by amount.
+6.Question: Assign row numbers to billing records ordered by amount.
+```sql
 SELECT Amount,
 ROW_NUMBER() OVER (ORDER BY Amount DESC) AS RowNum,
 Rank() OVER (ORDER BY Amount DESC) AS Rank,
 Dense_Rank ()  OVER (ORDER BY Amount DESC) AS DenseRank
 FROM Billing;
+```
 
---7.Retrieve patients with pending appointments.
+7.Retrieve patients with pending appointments.
+```sql
 SELECT P.FirstName, P.LastName , concat(P.FirstName, ' ' , P.LastName)Patients_FullName
 FROM Patients P
 WHERE EXISTS (SELECT 1 FROM Appointments A WHERE A.PatientID = P.PatientID AND A.Status = 'Pending');
-
---8.Question: List all patients' names and their contact numbers.
+```
+8.Question: List all patients' names and their contact numbers.
+```sql
 SELECT FirstName, LastName,concat(FirstName, ' ' , LastName)Patients_fullName, ContactNumber
 FROM Patients;
-
---9.Question: Retrieve the details of Active patients who had appointments scheduled in the last 7 days.
+```
+9.Question: Retrieve the details of Active patients who had appointments scheduled in the last 7 days.
+```sql
 SELECT P.PatientID, P.FirstName, P.LastName, P.DOB, P.Gender, P.ContactNumber, P.Address
 FROM Patients P
 INNER JOIN Appointments A ON P.PatientID = A.PatientID
 WHERE P.Status = 'Active' and AppointmentDate >= DATEADD(DAY, -7, GETDATE());
-
---10.Question: List all doctors along with their specialties.
+```
+10.Question: List all doctors along with their specialties.
+```sql
 SELECT FirstName, LastName, Specialty
 FROM Doctors;
-
---11.Question: Retrieve the details of doctors who have more than 1 appointments in the current month.
+```
+11.Question: Retrieve the details of doctors who have more than 1 appointments in the current month.
+```sql
 SELECT D.FirstName, D.LastName, COUNT(A.AppointmentID) AS AppointmentCount
 FROM Doctors D
 JOIN Appointments A ON D.DoctorID = A.DoctorID
@@ -146,71 +171,85 @@ WHERE MONTH(A.AppointmentDate) = MONTH(GETDATE())
   AND YEAR(A.AppointmentDate) = YEAR(GETDATE())
 GROUP BY D.FirstName, D.LastName
 HAVING COUNT(A.AppointmentID) > 1;
+```
 
---12.Question: List the appointments that are still pending (status 'Pending').
+12.Question: List the appointments that are still pending (status 'Pending').
+```sql
 SELECT *
 FROM Appointments
 WHERE Status = 'Pending';
-
---13.Question: Find the most common diagnosis given by doctors.
+```
+13.Question: Find the most common diagnosis given by doctors.
+```sql
 SELECT Diagnosis, COUNT(*) AS Frequency
 FROM MedicalRecords
 GROUP BY Diagnosis
 ORDER BY Frequency DESC
-
---14.Question: Find the total billing amount for the current month.
+```
+14.Question: Find the total billing amount for the current month.
+```sql
 SELECT SUM(Amount) AS TotalBilling
 FROM Billing
 WHERE MONTH(BillingDate) = MONTH(GETDATE())
   AND YEAR(BillingDate) = YEAR(GETDATE());
-
- --15.Question: Find the number of staff members in each department.
+```
+15.Question: Find the number of staff members in each department.
+ ```sql
 SELECT Dept.DepartmentName, COUNT(*) AS StaffCount
 FROM HospitalStaff HS
 JOIN Departments Dept ON HS.DepartmentID = Dept.DepartmentID
 GROUP BY Dept.DepartmentName;
-
---16.Question: Find the number of male and female Active patients.
+```
+16.Question: Find the number of male and female Active patients.
+```sql
 SELECT Gender, COUNT(*) AS NumberOfPatients
 FROM Patients
 Where Status = 'Active'
 GROUP BY Gender;
-
---17.Question: Retrieve the details of ACTIVE patients who have appointments scheduled in the next 7 days.
+```
+17.Question: Retrieve the details of ACTIVE patients who have appointments scheduled in the next 7 days.
+```sql
 SELECT P.FirstName, P.LastName, A.AppointmentDate
 FROM Patients P
 JOIN Appointments A ON P.PatientID = A.PatientID
 WHERE P.Status = 'Active' AND A.AppointmentDate BETWEEN GETDATE() AND DATEADD(DAY, 7, GETDATE());
+```
 
---18.Question: Find the number of doctors in each specialty.
+18.Question: Find the number of doctors in each specialty.
+```sql
 SELECT Specialty, COUNT(*) AS NumberOfDoctors
 FROM Doctors
 GROUP BY Specialty;
-
---19.Question: Find the total number of appointments scheduled in the current year.
+```
+19.Question: Find the total number of appointments scheduled in the current year.
+```sql
 SELECT COUNT(*) AS TotalAppointments
 FROM Appointments
 WHERE YEAR(AppointmentDate) = YEAR(GETDATE());
-
---20.Question: Retrieve the details of appointments along with patient and doctor names.
+```
+20.Question: Retrieve the details of appointments along with patient and doctor names.
+```sql
 SELECT A.AppointmentID, P.FirstName AS PatientFirstName, P.LastName AS PatientLastName,
        D.FirstName AS DoctorFirstName, D.LastName AS DoctorLastName, A.AppointmentDate
 FROM Appointments A
 JOIN Patients P ON A.PatientID = P.PatientID
 JOIN Doctors D ON A.DoctorID = D.DoctorID;
-
---21.Question: Find the medications that have been prescribed the most.
+```
+21.Question: Find the medications that have been prescribed the most.
+```sql
 SELECT Medication, COUNT(*) AS PrescriptionCount
 FROM Prescriptions
 GROUP BY Medication
 ORDER BY PrescriptionCount DESC;
-
---22.Question: Retrieve the details of unpaid bills.
+```
+22.Question: Retrieve the details of unpaid bills.
+```sql
 SELECT *
 FROM Billing
 WHERE PaymentStatus = 'Pending';
-
---23.Question: List the top 3 doctors with the highest number of appointments.
+```
+23.Question: List the top 3 doctors with the highest number of appointments.
+```sql
 WITH DoctorAppointments AS (
     SELECT DoctorID, COUNT(*) AS NumberOfAppointments
     FROM Appointments
@@ -220,3 +259,4 @@ WITH DoctorAppointments AS (
     FROM DoctorAppointments DA
     INNER JOIN Doctors D ON DA.DoctorID = D.DoctorID
     ORDER BY DA.NumberOfAppointments DESC
+```
