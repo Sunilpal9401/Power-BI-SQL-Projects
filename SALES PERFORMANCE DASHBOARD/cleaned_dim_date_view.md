@@ -1,3 +1,4 @@
+```sql
 DROP VIEW IF EXISTS date_view;
 
 GO
@@ -23,3 +24,4 @@ FROM
  [AdventureWorksDW2019].[dbo].[DimDate]
 WHERE 
   CalendarYear >= YEAR(GETDATE())-3
+```
