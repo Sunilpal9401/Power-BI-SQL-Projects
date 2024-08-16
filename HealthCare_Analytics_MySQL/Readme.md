@@ -1,7 +1,7 @@
 
 
 
-##Cleaning the Appointments Table Data
+##Cleaning the Appointments Table Data##
 ```sql
 select *, datepart(year,appointmentdate)Appointment_Year,
 datename(month, appointmentdate)Appointment_Month,
