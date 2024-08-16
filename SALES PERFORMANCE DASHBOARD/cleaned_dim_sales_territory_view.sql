@@ -1,3 +1,4 @@
+```sql
 DROP VIEW IF EXISTS dim_sales_territory_view;
 
 GO
@@ -11,3 +12,4 @@ SELECT
     ,[SalesTerritoryGroup] AS [Group]
   FROM [AdventureWorksDW2019].[dbo].[DimSalesTerritory]
   WHERE SalesTerritoryCountry <> 'NA';
+```
