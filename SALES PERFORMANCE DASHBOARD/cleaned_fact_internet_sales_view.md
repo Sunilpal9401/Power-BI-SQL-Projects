@@ -28,5 +28,6 @@ FROM
 WHERE 
   LEFT (OrderDateKey, 4) >= YEAR(GETDATE()) -3 -- Ensures we only bring 3 years of data from today's date.
 ORDER BY
-  ```
+  
   OrderDateKey ASC
+```
