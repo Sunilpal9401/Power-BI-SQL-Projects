@@ -1,3 +1,4 @@
+```sql
 DROP VIEW IF EXISTS dim_products_view;
 
 GO
@@ -24,3 +25,4 @@ FROM
   LEFT JOIN DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey 
 order by 
   p.ProductKey asc
+```
