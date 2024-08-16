@@ -3,15 +3,13 @@
 --where table_name = 'Healcare_Analytics'
 
 
-Cleaning the Appointments Table Data
-```sql
+--Cleaning the Appointments Table Data
     
 select *, datepart(year,appointmentdate)Appointment_Year,
 datename(month, appointmentdate)Appointment_Month,
 datepart(day, appointmentdate)Appointment_Day,
 CONVERT(date, appointmentdate)Appointment_time
 from Appointments
-    ```
 
 --Cleaning the Billing Table Data
 select *,datepart(year, billingdate)Billing_year,
