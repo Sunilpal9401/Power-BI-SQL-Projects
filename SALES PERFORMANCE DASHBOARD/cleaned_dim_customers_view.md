@@ -1,10 +1,13 @@
+
+```sql
 DROP VIEW IF EXISTS dim_customers_view;
 
 GO
 
 CREATE VIEW dim_customers_view AS
-
--- Cleansed DIM_Customers Table --
+```
+ Cleansed DIM_Customers Table 
+ ```sql
 SELECT TOP 100 PERCENT 
   c.customerkey AS CustomerKey  
   ,c.firstname + ' ' + lastname AS [Full Name] 
@@ -21,3 +24,4 @@ FROM
   LEFT JOIN DimSalesTerritory AS st ON g.SalesTerritoryKey = st.SalesTerritoryKey
 ORDER BY 
   CustomerKey ASC -- Ordered List by CustomerKey
+```
