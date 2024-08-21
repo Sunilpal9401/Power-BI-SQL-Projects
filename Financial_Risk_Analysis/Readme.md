@@ -186,3 +186,236 @@ from application_train
 group by WEEKDAY_APPR_PROCESS_START
 order by Percentage desc
 ```
+### Part 3: Target Variable & Risk Analysis
+- **Credit Enquiries Analysis**: Analyze credit enquiries on clients before the loan application.
+In general the banks check the credit profile of a client as a whole. There are multiple factors which affect the Cibil Score of an individual.
+Credit Enquiry is just one of them. These Enquiries are of two types. 
+Examples - Soft Enquiry - Employer checking your credit report, Hard Enquiry - Bank checking your credit report for approving credits
+It is assumed that these are Hard Enquiries.
+```sql
+--- 1 Year before the application
+
+select AMT_REQ_CREDIT_BUREAU_YEAR
+,count(1) as Frequency
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_YEAR
+order by percentage desc
+
+--- 1 Quarter before the application
+
+select top 5 AMT_REQ_CREDIT_BUREAU_QRT
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_QRT
+order by percentage desc
+
+--- 1 Month before the application
+
+select top 5 AMT_REQ_CREDIT_BUREAU_MON
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_MON
+order by percentage desc
+
+--- 1 Week before the application
+
+select top 5 AMT_REQ_CREDIT_BUREAU_WEEK
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_WEEK
+order by percentage desc
+
+--- 1 Day before the application
+
+select top 5 AMT_REQ_CREDIT_BUREAU_DAY
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_DAY
+order by percentage desc
+
+--- 1 Hour before the application
+
+select top 5 AMT_REQ_CREDIT_BUREAU_HOUR
+,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by AMT_REQ_CREDIT_BUREAU_HOUR
+order by percentage desc
+```
+- **Risk Classification**: Classify clients based on risk factors such as default percentages.
+```sql
+--Basic enquiry averages
+select avg(AMT_REQ_CREDIT_BUREAU_HOUR) as avg_hour_enquiry
+,avg(AMT_REQ_CREDIT_BUREAU_DAY ) as avg_day_enquiry
+,avg(AMT_REQ_CREDIT_BUREAU_WEEK) as avg_week_enquiry
+,avg(AMT_REQ_CREDIT_BUREAU_MON ) as avg_month_enquiry
+,avg(AMT_REQ_CREDIT_BUREAU_QRT ) as avg_quarter_enquiry
+,avg(AMT_REQ_CREDIT_BUREAU_YEAR) as avg_year_enquiry
+from application_train
+```
+Analysis of individual applications based on the credit enquiries
+```sql
+with enquiry_table as
+(select 
+case when AMT_REQ_CREDIT_BUREAU_YEAR is null then 'No Credit History'
+when AMT_REQ_CREDIT_BUREAU_YEAR = 0 then 'No Enquiry in the past year'
+when AMT_REQ_CREDIT_BUREAU_QRT = 0 then 'Had Enquiries within the year'
+when AMT_REQ_CREDIT_BUREAU_MON = 0 then 'Had Enquiries within the quarter'
+when AMT_REQ_CREDIT_BUREAU_WEEK = 0 then 'Had Enquiries within the month'
+when AMT_REQ_CREDIT_BUREAU_DAY = 0 then 'Had Enquiries within the week'
+when AMT_REQ_CREDIT_BUREAU_HOUR = 0 then 'Had Enquiries within the day' end as Enquiry_Status
+from application_train)
+select Enquiry_Status
+,count(Enquiry_Status) as Frequency
+,cast(count(Enquiry_Status)*100.0/(select count(1) from enquiry_table)as decimal(4,2)) as Percentage
+from enquiry_table
+group by Enquiry_Status
+order by Percentage desc
+```
+Analysis of individual applications based on the credit enquiries
+```sql
+with default_scope as
+(select isnull(cast(DEF_60_CNT_SOCIAL_CIRCLE*100.0/NULLIF(OBS_60_CNT_SOCIAL_CIRCLE,0) as decimal(5,2)),0) as Percentage
+from application_train)
+,risk_scope as
+(select
+case when Percentage=100 then 'Very High Risk'
+when Percentage between 75 and 99 then 'High Risk'
+when Percentage between 50 and 74 then 'Moderate Risk'
+when Percentage between 25 and 49 then 'Low Risk'
+when Percentage <25 then 'Very Low Risk' end as Risk_category_60_Days
+from default_scope)
+select Risk_category_60_Days,
+count(1) as Frequency,
+cast(count(1)*100.0/(select count(1) from risk_scope) as decimal(5,2)) as Percentage
+from risk_scope
+group by Risk_category_60_Days
+order by Percentage desc
+```
+
+Analysis of individual applications based on the credit enquiries
+
+```sql
+with default_scope as
+(select isnull(cast(DEF_30_CNT_SOCIAL_CIRCLE*100.0/NULLIF(OBS_30_CNT_SOCIAL_CIRCLE,0) as decimal(5,2)),0) as Percentage
+from application_train)
+,risk_scope as
+(select
+case when Percentage=100 then 'Very High Risk'
+when Percentage between 75 and 99 then 'High Risk'
+when Percentage between 50 and 74 then 'Moderate Risk'
+when Percentage between 25 and 49 then 'Low Risk'
+when Percentage <25 then 'Very Low Risk' end as Risk_category_30_Days
+from default_scope)
+select Risk_category_30_Days,
+count(1) as Frequency,
+cast(count(1)*100.0/(select count(1) from risk_scope) as decimal(5,2)) as Percentage
+from risk_scope
+group by Risk_category_30_Days
+order by Percentage desc
+```
+Analysis of individual applications based on the credit enquiries
+
+```sql
+with default_scope as
+(select target, isnull(cast(DEF_30_CNT_SOCIAL_CIRCLE*100.0/NULLIF(OBS_30_CNT_SOCIAL_CIRCLE,0) as decimal(5,2)),0) as Percentage
+from application_train)
+,risk_scope as
+(select target,
+case when Percentage=100 then 'Very High Risk'
+when Percentage between 75 and 99 then 'High Risk'
+when Percentage between 50 and 74 then 'Moderate Risk'
+when Percentage between 25 and 49 then 'Low Risk'
+when Percentage <25 then 'Very Low Risk' end as Risk_category_30_Days
+from default_scope)
+select case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end as Target
+,Risk_category_30_Days
+,count(1) as Frequency
+,cast(count(1)*100.0/(select count(1) from risk_scope) as decimal(5,2)) as Percentage
+from risk_scope
+group by case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end, Risk_category_30_Days
+order by Target
+```
+
+
+
+- **Deeper Risk Analysis**: Conduct a deeper analysis of clients with payment difficulties and low-risk surroundings.
+```sql
+with default_scope as
+(select target
+,case when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =3 then 'All Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =2 then 'Two Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =1 then '1 Contact Available'
+else 'No Contact Available' end as contacts_provided
+, isnull(cast(DEF_30_CNT_SOCIAL_CIRCLE*100.0/NULLIF(OBS_30_CNT_SOCIAL_CIRCLE,0) as decimal(5,2)),0) as Percentage
+from application_train)
+,risk_scope as
+(select target,contacts_provided,
+case when Percentage=100 then 'Very High Risk'
+when Percentage between 75 and 99 then 'High Risk'
+when Percentage between 50 and 74 then 'Moderate Risk'
+when Percentage between 25 and 49 then 'Low Risk'
+when Percentage <25 then 'Very Low Risk' end as Risk_category_30_Days
+from default_scope)
+,risk_based_on_contact_reach as
+(select case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end as Target
+,contacts_provided
+,Risk_category_30_Days
+,count(1) as Frequency
+,cast(count(1)*100.0/(select count(1) from risk_scope) as decimal(5,2)) as Percentage
+from risk_scope
+group by case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end, Risk_category_30_Days,contacts_provided)
+select Target,contacts_provided,
+Risk_category_30_Days,
+Frequency,
+cast(Frequency*100.0/sum(frequency)over() as decimal(5,2)) as Percentage
+from risk_based_on_contact_reach
+where Target = 'Had Payment Difficulties' and Risk_category_30_Days = 'Very Low Risk'
+order by Percentage desc
+```
+![image](https://github.com/user-attachments/assets/029e1339-36e1-44a0-86fc-bad3c2f0a55e)
+
+- **Integration of Previous Application Data**: Integrate insights from previous loan application data.
+```sql
+with default_scope as
+(select target
+,case when REG_REGION_NOT_LIVE_REGION = 1 then 'Address Mismatch' else 'Address Match' end as Address_city_match
+,case when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =3 then 'All Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =2 then 'Two Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =1 then '1 Contact Available'
+else 'No Contact Available' end as contacts_provided
+, isnull(cast(DEF_30_CNT_SOCIAL_CIRCLE*100.0/NULLIF(OBS_30_CNT_SOCIAL_CIRCLE,0) as decimal(5,2)),0) as Percentage
+from application_train)
+,risk_scope as
+(select target,contacts_provided,Address_city_match,
+case when Percentage=100 then 'Very High Risk'
+when Percentage between 75 and 99 then 'High Risk'
+when Percentage between 50 and 74 then 'Moderate Risk'
+when Percentage between 25 and 49 then 'Low Risk'
+when Percentage <25 then 'Very Low Risk' end as Risk_category_30_Days
+from default_scope)
+,risk_based_on_contact_reach as
+(select case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end as Target
+,Address_city_match
+,contacts_provided
+,Risk_category_30_Days
+,count(1) as Frequency
+,cast(count(1)*100.0/(select count(1) from risk_scope) as decimal(5,2)) as Percentage
+from risk_scope
+group by case when target = 0 then 'Never had Payment Difficulties'
+else 'Had Payment Difficulties' end, Risk_category_30_Days,contacts_provided,Address_city_match)
+select Target,contacts_provided,
+Address_city_match,
+Risk_category_30_Days,
+Frequency,
+cast(Frequency*100.0/sum(frequency)over() as decimal(5,2)) as Percentage
+from risk_based_on_contact_reach
+where Target = 'Had Payment Difficulties' and Risk_category_30_Days = 'Very Low Risk'
+order by Percentage desc
+```
+![image](https://github.com/user-attachments/assets/c30825fd-b99c-4252-bf61-c686113a308f)
