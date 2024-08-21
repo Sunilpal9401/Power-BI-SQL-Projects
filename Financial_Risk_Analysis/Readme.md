@@ -145,6 +145,9 @@ from application_train
 group by NAME_FAMILY_STATUS
 order by percentage desc
 ```
+![1](https://github.com/user-attachments/assets/42189d6f-bc3a-45f6-b2da-869bf3c13d33)
+
+
 - **Housing Distribution**: Explore the distribution of housing types among clients.
 ```sql
 select NAME_HOUSING_TYPE
@@ -154,6 +157,8 @@ from application_train
 group by NAME_HOUSING_TYPE
 order by percentage desc
 ```
+![2](https://github.com/user-attachments/assets/ba8c1782-815c-4998-b9b9-adb699cf4fe0)
+
 - **Age Brackets**: Investigate the age brackets of the clients.
 ```sql
 with age_application as (
@@ -170,6 +175,9 @@ from age_application
 group by age_bracket
 order by Percentage desc
 ```
+![3](https://github.com/user-attachments/assets/14a17953-00bb-4572-bb4a-d17c4eaee94e)
+
+
 
 - **Contacts Availability**: Analyze the availability of contact information for clients.
 ```sql
@@ -186,6 +194,8 @@ cast(count(1)*100.0/(select count(1) from contact_data) as decimal(4,2)) as perc
 from contact_data
 group by contacts_provided
 ```
+![4](https://github.com/user-attachments/assets/01df03ef-e0cb-4319-ac6c-a947477c6485)
+
 
 - **Documents Submission Analysis**: Analyze the submission of required documents by clients.
 ```sql
@@ -205,6 +215,9 @@ cast(count(1)*100.0/(select count(1) from documents_data) as decimal(5,2)) as pe
 from documents_data
 group by Documents_provided
 ```
+![5](https://github.com/user-attachments/assets/e3e125bb-3708-485a-b717-dc5cf4aace5c)
+
+
 - **Loan Application Day Analysis**: Investigate the distribution of loan applications over days.
 ```sql
 select WEEKDAY_APPR_PROCESS_START,
@@ -213,6 +226,9 @@ from application_train
 group by WEEKDAY_APPR_PROCESS_START
 order by Percentage desc
 ```
+
+![6](https://github.com/user-attachments/assets/c6d7d538-6b76-4565-96e9-ae5bea92868a)
+
 ### Part 3: Target Variable & Risk Analysis
 - **Credit Enquiries Analysis**: Analyze credit enquiries on clients before the loan application.
 In general the banks check the credit profile of a client as a whole. There are multiple factors which affect the Cibil Score of an individual.
@@ -280,6 +296,10 @@ select avg(AMT_REQ_CREDIT_BUREAU_HOUR) as avg_hour_enquiry
 ,avg(AMT_REQ_CREDIT_BUREAU_YEAR) as avg_year_enquiry
 from application_train
 ```
+
+![basic avg](https://github.com/user-attachments/assets/f5dc48af-8105-4cc6-9f85-c38eb947d5e0)
+
+
 Analysis of individual applications based on the credit enquiries
 ```sql
 with enquiry_table as
@@ -299,6 +319,10 @@ from enquiry_table
 group by Enquiry_Status
 order by Percentage desc
 ```
+![image](https://github.com/user-attachments/assets/3788886f-de7d-4d91-88bc-fe394e0ab372)
+
+
+
 Analysis of individual applications based on the credit enquiries
 ```sql
 with default_scope as
@@ -319,6 +343,9 @@ from risk_scope
 group by Risk_category_60_Days
 order by Percentage desc
 ```
+![image](https://github.com/user-attachments/assets/d6703813-647d-4a45-8ea7-8324010bd5b3)
+
+
 
 Analysis of individual applications based on the credit enquiries
 
@@ -341,6 +368,10 @@ from risk_scope
 group by Risk_category_30_Days
 order by Percentage desc
 ```
+![image](https://github.com/user-attachments/assets/a86aed0e-7a9f-49a1-ae7a-dc72d6986536)
+
+
+
 Analysis of individual applications based on the credit enquiries
 
 ```sql
@@ -365,6 +396,7 @@ group by case when target = 0 then 'Never had Payment Difficulties'
 else 'Had Payment Difficulties' end, Risk_category_30_Days
 order by Target
 ```
+![image](https://github.com/user-attachments/assets/b19bf762-2d05-4c0e-989d-d1a1b676214c)
 
 
 
@@ -404,7 +436,8 @@ from risk_based_on_contact_reach
 where Target = 'Had Payment Difficulties' and Risk_category_30_Days = 'Very Low Risk'
 order by Percentage desc
 ```
-![image](https://github.com/user-attachments/assets/029e1339-36e1-44a0-86fc-bad3c2f0a55e)
+![image](https://github.com/user-attachments/assets/49bfd8ea-68f5-4d6a-8ba4-96d83f96f1c4)
+
 
 - **Integration of Previous Application Data**: Integrate insights from previous loan application data.
 ```sql
@@ -445,4 +478,5 @@ from risk_based_on_contact_reach
 where Target = 'Had Payment Difficulties' and Risk_category_30_Days = 'Very Low Risk'
 order by Percentage desc
 ```
-![image](https://github.com/user-attachments/assets/c30825fd-b99c-4252-bf61-c686113a308f)
+![image](https://github.com/user-attachments/assets/5c6ae940-fa02-40da-b049-5a1fd72b63b5)
+
