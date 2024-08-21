@@ -108,3 +108,81 @@ cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as
 from application_train
 group by REGION_RATING_CLIENT_W_CITY
 ```
+
+### Part 2: Understanding the Client Base & Business Operations
+- **Family Status**: Analyze the family status of the bank's clients.
+```sqlselect NAME_FAMILY_STATUS
+,count(1) as volume
+,cast(count(1)*100.0/sum(count(1))over() as decimal(4,2))as percentage
+from application_train
+group by NAME_FAMILY_STATUS
+order by percentage desc
+```
+- **Housing Distribution**: Explore the distribution of housing types among clients.
+```sql
+select NAME_HOUSING_TYPE
+,count(1) as volume
+,cast(count(1)*100.0/sum(count(1))over() as decimal(4,2))as percentage
+from application_train
+group by NAME_HOUSING_TYPE
+order by percentage desc
+```
+- **Age Brackets**: Investigate the age brackets of the clients.
+```sql
+with age_application as (
+select 
+case when datediff(year,DATEADd(dd,DAYS_BIRTH,getdate()),GETDATE()) <=25 then '18-25' 
+	when datediff(year,DATEADd(dd,DAYS_BIRTH,getdate()),GETDATE()) between 26 and 40 then '26-40' 
+	when datediff(year,DATEADd(dd,DAYS_BIRTH,getdate()),GETDATE()) between 41 and 55 then '41-55' 
+	when datediff(year,DATEADd(dd,DAYS_BIRTH,getdate()),GETDATE()) between 56 and 65 then '56-65' else '65above' end as age_bracket
+from application_train)
+select age_bracket
+,count(1) as Frequency
+,cast(count(1)*100.0/(select count(1) from application_train)as decimal(4,2)) as Percentage
+from age_application
+group by age_bracket
+order by Percentage desc
+```
+
+- **Contacts Availability**: Analyze the availability of contact information for clients.
+```sql
+with contact_data as
+(select
+case when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =3 then 'All Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =2 then 'Two Contacts Available'
+when FLAG_MOBIL+FLAG_EMP_PHONE+FLAG_WORK_PHONE =1 then '1 Contact Available'
+else 'No Contact Available' end as contacts_provided
+from application_train)
+select contacts_provided,
+count(1) as Frequency,
+cast(count(1)*100.0/(select count(1) from contact_data) as decimal(4,2)) as percentage
+from contact_data
+group by contacts_provided
+```
+
+- **Documents Submission Analysis**: Analyze the submission of required documents by clients.
+```sql
+with Documents_data as
+(select
+case when FLAG_DOCUMENT_2+FLAG_DOCUMENT_3+FLAG_DOCUMENT_4+FLAG_DOCUMENT_5+FLAG_DOCUMENT_6+FLAG_DOCUMENT_7+FLAG_DOCUMENT_8+FLAG_DOCUMENT_9+FLAG_DOCUMENT_10+FLAG_DOCUMENT_11+FLAG_DOCUMENT_12+FLAG_DOCUMENT_13+FLAG_DOCUMENT_14+FLAG_DOCUMENT_15+FLAG_DOCUMENT_16+FLAG_DOCUMENT_17+FLAG_DOCUMENT_18+FLAG_DOCUMENT_19+FLAG_DOCUMENT_20+FLAG_DOCUMENT_21
+between 15 and 20 then '15-20 Documents Available'
+when FLAG_DOCUMENT_2+FLAG_DOCUMENT_3+FLAG_DOCUMENT_4+FLAG_DOCUMENT_5+FLAG_DOCUMENT_6+FLAG_DOCUMENT_7+FLAG_DOCUMENT_8+FLAG_DOCUMENT_9+FLAG_DOCUMENT_10+FLAG_DOCUMENT_11+FLAG_DOCUMENT_12+FLAG_DOCUMENT_13+FLAG_DOCUMENT_14+FLAG_DOCUMENT_15+FLAG_DOCUMENT_16+FLAG_DOCUMENT_17+FLAG_DOCUMENT_18+FLAG_DOCUMENT_19+FLAG_DOCUMENT_20+FLAG_DOCUMENT_21
+between 10 and 14 then '10-14 Documents Available'
+when FLAG_DOCUMENT_2+FLAG_DOCUMENT_3+FLAG_DOCUMENT_4+FLAG_DOCUMENT_5+FLAG_DOCUMENT_6+FLAG_DOCUMENT_7+FLAG_DOCUMENT_8+FLAG_DOCUMENT_9+FLAG_DOCUMENT_10+FLAG_DOCUMENT_11+FLAG_DOCUMENT_12+FLAG_DOCUMENT_13+FLAG_DOCUMENT_14+FLAG_DOCUMENT_15+FLAG_DOCUMENT_16+FLAG_DOCUMENT_17+FLAG_DOCUMENT_18+FLAG_DOCUMENT_19+FLAG_DOCUMENT_20+FLAG_DOCUMENT_21
+between 5 and 9 then ' 5-9 Documents Available'
+else 'Less than 5 Documents Available' end as Documents_provided
+from application_train)
+select Documents_provided,
+count(1) as Frequency,
+cast(count(1)*100.0/(select count(1) from documents_data) as decimal(5,2)) as percentage
+from documents_data
+group by Documents_provided
+```
+- **Loan Application Day Analysis**: Investigate the distribution of loan applications over days.
+```sql
+select WEEKDAY_APPR_PROCESS_START,
+cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as Percentage
+from application_train
+group by WEEKDAY_APPR_PROCESS_START
+order by Percentage desc
+```
