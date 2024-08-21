@@ -8,6 +8,8 @@ select count(1) as Number_of_records from application_train;
 ```
 ![1](https://github.com/user-attachments/assets/d1070982-a4ce-47d5-a2a7-d0f201d9d4e5)
 
+**Insight from Query** `The table has more than 3 lakh records of customer credit application data`
+
 - **Credit Types**: Analyze the different types of credits offered by the bank.
 ```sql
 select name_contract_type,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as percentage 
