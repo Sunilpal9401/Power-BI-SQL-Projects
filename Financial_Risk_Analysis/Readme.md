@@ -78,7 +78,9 @@ SELECT distinct name_contract_type AS name_contract_type
 FROM application_train 
 where NAME_CONTRACT_TYPE = 'Cash Loans'
 ```
-![7](https://github.com/user-attachments/assets/656733f2-0a39-49a6-95b5-0625548eef80)
+![4](https://github.com/user-attachments/assets/4d836622-584b-4a77-8089-7f9c43a63146)
+
+
 
 - **Basic Income Type Distribution**: Investigate the distribution of income types among applicants.
 ```sql
@@ -89,7 +91,8 @@ from application_train
 group by NAME_INCOME_TYPE
 order by percentage desc
 ```
-![8](https://github.com/user-attachments/assets/b998abe2-6071-4f99-bb98-2c75b0a94a63)
+![7](https://github.com/user-attachments/assets/095361a2-12c2-4c60-925d-818ce7034fac)
+
 
 - **Basic Housing Type Distribution**: Explore the distribution of housing types among applicants.
 ```sql
@@ -99,7 +102,8 @@ select NAME_HOUSING_TYPE
 from application_train
 group by NAME_HOUSING_TYPE
 ```
-![9](https://github.com/user-attachments/assets/908f50fd-9d8d-44ae-9db8-ae90be569c31)
+![8](https://github.com/user-attachments/assets/aa90e367-2525-4985-a812-40598804bed2)
+
 
 
 - **Basic Occupation Distribution**: Analyze the distribution of occupations among applicants.
@@ -110,7 +114,8 @@ from application_train
 group by OCCUPATION_TYPE
 order by percentage desc
 ```
-![9](https://github.com/user-attachments/assets/028edce7-1983-4d7a-a6fb-36135dc584d5)
+![9](https://github.com/user-attachments/assets/db3ee1c8-b18d-4242-ad4a-d322ef785473)
+
 
 
 
@@ -128,7 +133,8 @@ cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as
 from application_train
 group by REGION_RATING_CLIENT_W_CITY
 ```
-![10](https://github.com/user-attachments/assets/369b3af6-9809-4936-97c1-2c29b4925b23)
+![10](https://github.com/user-attachments/assets/da33b8ef-d755-4fa7-b538-42cc9bc3787f)
+
 
 ### Part 2: Understanding the Client Base & Business Operations
 - **Family Status**: Analyze the family status of the bank's clients.
