@@ -6,12 +6,16 @@ This repository contains a comprehensive analysis of loan risk factors in the ba
 ```sql
 select count(1) as Number_of_records from application_train;
 ```
+![1](https://github.com/user-attachments/assets/d1070982-a4ce-47d5-a2a7-d0f201d9d4e5)
+
 - **Credit Types**: Analyze the different types of credits offered by the bank.
 ```sql
 select name_contract_type,cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as percentage 
 from application_train
 group by NAME_CONTRACT_TYPE;
 ```
+![2](https://github.com/user-attachments/assets/adc247dd-ffed-41cb-af77-075b4b863d8d)
+
 
 - **Gender Distribution**: Explore the gender distribution of loan applicants.
 ```sql
@@ -19,6 +23,8 @@ select CODE_GENDER,cast(count(1)*100.0/(select count(1) from application_train) 
 from application_train
 group by CODE_GENDER;
 ```
+![3](https://github.com/user-attachments/assets/98f1d6a2-007e-4563-bb85-815c3d8dc1ee)
+
 - **Gender-wise Credit Distribution**: Analyze the distribution of credits based on gender.
 ```sql
 select name_contract_type,code_gender,count(1) as volume,
@@ -26,6 +32,8 @@ cast(count(name_contract_type)*100.0/sum(count(name_contract_type))over(partitio
 from application_train
 group by name_contract_type,CODE_GENDER
 ```
+![4](https://github.com/user-attachments/assets/5c7bb4f0-3eff-4885-beee-b6ad88b4f6ca)
+
 
 - **Income Distribution**: Analyze income distribution and descriptive statistics concerning credit type.
 ```sql
@@ -37,6 +45,8 @@ SELECT distinct name_contract_type AS name_contract_type
 ,PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY amt_income_total) OVER (PARTITION BY name_contract_type) AS Median_Income
 FROM application_train 
 ```
+![5](https://github.com/user-attachments/assets/e248c13c-c6cb-4b6e-b229-4c2df6a9e61c)
+
 - **Income & Credit Distribution**: Explore the relationship between income and credit amounts based on credit type.
 ```sql
 SELECT distinct name_contract_type AS name_contract_type
@@ -51,6 +61,8 @@ SELECT distinct name_contract_type AS name_contract_type
 ,PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY AMT_CREDIT) OVER (PARTITION BY name_contract_type) AS Median_Credit
 FROM application_train 
 ```
+![6](https://github.com/user-attachments/assets/251570e7-17f6-4330-b5f8-ccdaa6405d5f)
+
 - **Goods Amount Analysis**: Analyze the goods amount for which loans are given in the case of cash loans.
 ```sql
 SELECT distinct name_contract_type AS name_contract_type
@@ -66,6 +78,7 @@ SELECT distinct name_contract_type AS name_contract_type
 FROM application_train 
 where NAME_CONTRACT_TYPE = 'Cash Loans'
 ```
+![7](https://github.com/user-attachments/assets/656733f2-0a39-49a6-95b5-0625548eef80)
 
 - **Basic Income Type Distribution**: Investigate the distribution of income types among applicants.
 ```sql
@@ -76,6 +89,8 @@ from application_train
 group by NAME_INCOME_TYPE
 order by percentage desc
 ```
+![8](https://github.com/user-attachments/assets/b998abe2-6071-4f99-bb98-2c75b0a94a63)
+
 - **Basic Housing Type Distribution**: Explore the distribution of housing types among applicants.
 ```sql
 select NAME_HOUSING_TYPE
@@ -84,6 +99,8 @@ select NAME_HOUSING_TYPE
 from application_train
 group by NAME_HOUSING_TYPE
 ```
+![9](https://github.com/user-attachments/assets/908f50fd-9d8d-44ae-9db8-ae90be569c31)
+
 
 - **Basic Occupation Distribution**: Analyze the distribution of occupations among applicants.
 ```sql
@@ -93,6 +110,9 @@ from application_train
 group by OCCUPATION_TYPE
 order by percentage desc
 ```
+![9](https://github.com/user-attachments/assets/028edce7-1983-4d7a-a6fb-36135dc584d5)
+
+
 
 - **Region & City Rating Distribution**: Investigate the distribution of region and city ratings among applicants.
 ```sql
@@ -108,6 +128,7 @@ cast(count(1)*100.0/(select count(1) from application_train) as decimal(4,2)) as
 from application_train
 group by REGION_RATING_CLIENT_W_CITY
 ```
+![10](https://github.com/user-attachments/assets/369b3af6-9809-4936-97c1-2c29b4925b23)
 
 ### Part 2: Understanding the Client Base & Business Operations
 - **Family Status**: Analyze the family status of the bank's clients.
