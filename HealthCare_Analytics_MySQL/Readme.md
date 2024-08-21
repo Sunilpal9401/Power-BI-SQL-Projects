@@ -1,3 +1,4 @@
+![health](https://github.com/user-attachments/assets/da804760-fc52-4951-844f-d89df2431465)
 
 Cleaning the Appointments Table Data
 ```sql
