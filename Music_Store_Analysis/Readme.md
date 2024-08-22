@@ -125,8 +125,7 @@ ORDER BY amount_spent DESC;
 ```
 ![image](https://github.com/user-attachments/assets/b047c4de-0c4c-4986-8a3f-0ed0d6e41600)
 
-####  We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
-with the highest amount of purchases. Write a query that returns each country along with the top Genre.For countries where the maximum number of purchases is shared return all Genres.
+####  We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre with the highest amount of purchases. Write a query that returns each country along with the top Genre.For countries where the maximum number of purchases is shared return all Genres.
 
 ```sql
 WITH popular_genre AS 
