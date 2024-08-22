@@ -1,7 +1,7 @@
-#Hotel_Analytics
+# Hotel_Analytics
 
 
-##Project Goal:
+## Project Goal:
 To analyze a dataset of a hotel's operations using SQL queries to gain insights into customer behavior, revenue performance, and overall business trends.
 
 Key Objectives:
