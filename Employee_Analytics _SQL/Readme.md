@@ -15,7 +15,7 @@ departmental data through well-structured SQL queries.
 
 ## Business Queries
 
-## Question 1 :Retrieve employees with a salary less than the average salary of all employees.
+### Question 1 :Retrieve employees with a salary less than the average salary of all employees.
 ```sql
 SELECT * FROM employeeDetails WHERE Salary < (SELECT AVG(Salary) FROM employeeDetails)
 ```
