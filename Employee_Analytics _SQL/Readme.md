@@ -13,3 +13,10 @@ departmental data through well-structured SQL queries.
 - Query Development: Write SQL queries to extract relevant information and answer specific business questions.
 - Data Analysis: Analyze the results to identify patterns, trends, and insights.
 
+## Business Queries
+
+## Question 1 :Retrieve employees with a salary less than the average salary of all employees.
+```sql
+SELECT * FROM employeeDetails WHERE Salary < (SELECT AVG(Salary) FROM employeeDetails)
+```
+
