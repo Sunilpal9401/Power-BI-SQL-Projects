@@ -12,7 +12,7 @@ Key Objectives:
 
 ###Bussiness quries 
 
-- **Find the guest who has made the most bookings.
+- Find the guest who has made the most bookings.
 ```sql
 WITH GuestBookings AS (
     SELECT Guests.guest_id,
@@ -33,7 +33,7 @@ WHERE rank = 1;
 ```
 ![1](https://github.com/user-attachments/assets/d986a346-cb4d-420c-9564-c66c9050347f)
 
-- **List the guests who have bookings from 25-June to 1 -July.
+- List the guests who have bookings from 25-June to 1 -July.
 ```sql
 SELECT DISTINCT B.Guest_id,
  CONCAT(first_name, ' ', last_name) AS Guest_Name
@@ -57,7 +57,7 @@ FROM
 ```
 ![image](https://github.com/user-attachments/assets/ce5faf18-e1e5-4244-9dd4-a89ab7fdff4a)
 
-- **Find the average stay duration of guests.
+-Find the average stay duration of guests.
 ```sql
 WITH Stay AS (
     SELECT
@@ -127,7 +127,7 @@ SELECT
     ```
     ![image](https://github.com/user-attachments/assets/97903fd7-539d-43ae-adfd-50e04b3ecdba)
 
-    - **List all guests along with their total stay duration and amount across all bookings
+    - List all guests along with their total stay duration and amount across all bookings
     ```sql
     WITH LongStays AS
 (
