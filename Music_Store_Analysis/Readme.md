@@ -44,9 +44,7 @@ ORDER BY total DESC
 ```
 ![image](https://github.com/user-attachments/assets/2535936e-8f92-4fde-bbed-f7042bd936f8)
 
-#### Which city has the best customers? We would like to throw a promotional Music Festival in the city we made the most money. 
-Write a query that returns one city that has the highest sum of invoice totals. 
-Return both the city name & sum of all invoice totals
+#### Which city has the best customers? We would like to throw a promotional Music Festival in the city we made the most money. Write a query that returns one city that has the highest sum of invoice totals.Return both the city name & sum of all invoice totals
 ```sql
 SELECT SUM(total) AS invoice_total, billing_city 
 FROM invoice
@@ -55,8 +53,7 @@ ORDER BY invoice_total
 ```
 ![image](https://github.com/user-attachments/assets/8e42ed34-2204-4031-9367-bf935e02960a)
 
-#### Who is the best customer? The customer who has spent the most money will be declared the best customer. 
-Write a query that returns the person who has spent the most money.
+#### Who is the best customer? The customer who has spent the most money will be declared the best customer.Write a query that returns the person who has spent the most money.
 ```sql
 SELECT top 1 c.customer_id, c.first_name, c.last_name, SUM(i.total) AS total
 FROM customer c 
@@ -66,8 +63,7 @@ ORDER BY total DESC
 ```
 ![image](https://github.com/user-attachments/assets/6ac4a8e9-453b-4ed6-9cee-39aa8b5b57c5)
 
-#### Write query to return the email, Full name, & Genre of all Rock Music listeners. 
-Return your list ordered alphabetically by email starting with A.
+#### Write query to return the email, Full name, & Genre of all Rock Music listeners.Return your list ordered alphabetically by email starting with A.
 
 ```sql
 SELECT DISTINCT email AS Email,concat(first_name,' ',last_name)as Full_Name, genre.name AS Name
@@ -81,8 +77,7 @@ ORDER BY email
 ```
 ![image](https://github.com/user-attachments/assets/f2eaf83e-b36f-4477-b116-134ec53ef5c8)
 
-#### Let's invite the artists who have written the most rock music in our dataset. 
-Write a query that returns the Artist name and total track count of the top 10 rock bands.
+#### Let's invite the artists who have written the most rock music in our dataset.Write a query that returns the Artist name and total track count of the top 10 rock bands.
 ```sql
 SELECT top 10 artist.artist_id, artist.name,COUNT(artist.artist_id) AS number_of_songs
 FROM track
@@ -95,8 +90,7 @@ ORDER BY number_of_songs DESC
 ```
 ![image](https://github.com/user-attachments/assets/35e8325c-44e0-481d-a3a7-250e25e49820)
 
-#### Return all the track names that have a song length longer than the average song length. 
-Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first.
+#### Return all the track names that have a song length longer than the average song length.Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first.
 ```sql
 SELECT name,Milliseconds
 FROM track
@@ -132,8 +126,7 @@ ORDER BY amount_spent DESC;
 ![image](https://github.com/user-attachments/assets/b047c4de-0c4c-4986-8a3f-0ed0d6e41600)
 
 ####  We want to find out the most popular music Genre for each country. We determine the most popular genre as the genre 
-with the highest amount of purchases. Write a query that returns each country along with the top Genre. For countries where 
-the maximum number of purchases is shared return all Genres.
+with the highest amount of purchases. Write a query that returns each country along with the top Genre.For countries where the maximum number of purchases is shared return all Genres.
 
 ```sql
 WITH popular_genre AS 
@@ -153,9 +146,7 @@ ORDER BY  purchases DESC
 ```
 ![image](https://github.com/user-attachments/assets/38db0181-50cc-4258-b2d8-eb0da31efc65)
 
-#### Write a query that determines the customer that has spent the most on music for each country. 
-Write a query that returns the country along with the top customer and how much they spent. 
-For countries where the top amount spent is shared, provide all customers who spent this amount.
+#### Write a query that determines the customer that has spent the most on music for each country.Write a query that returns the country along with the top customer and how much they spent.For countries where the top amount spent is shared, provide all customers who spent this amount.
 
 ```sql
 WITH Customter_with_country AS (
