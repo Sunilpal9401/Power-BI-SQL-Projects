@@ -151,24 +151,20 @@ ORDER BY total_amount_spent DESC;
     FROM LongStays
 	group by guest_id, full_name
 	order by TotalStayDays desc, total_amount_spent desc, guest_id desc
-
-guest_id	full_name	TotalStayDays	total_amount_spent
-   10	   Sunil Chopra	5	     5               6000.00
-   9	Kavita Joshi	5	     5               6000.00
-   8	Amit Verma	5	     5               6000.00
-   7	Vikas Reddy	5	     5               6000.00
-   5	Rahul Patel	5	     5               5000.00
-   3	Anil Mehta	5	     5               5000.00
-   2	Sita Sharma	5	     5               4500.00
-   6	Priya Nair	1	     1               1000.00
-   4	Pooja Singh	1	     1               1000.00
-   1	Ravi Kumar	1	     1               900.00
-
-
-
-    
+  
  ```
-
+`guest_id`	`full_name`	`TotalStayDays`	`total_amount_spent`
+   10	Sunil Chopra		     5               6000.00
+   9	Kavita Joshi		     5               6000.00
+   8	Amit Verma		     5               6000.00
+   7	Vikas Reddy		     5               6000.00
+   5	Rahul Patel		     5               5000.00
+   3	Anil Mehta		     5               5000.00
+   2	Sita Sharma		     5               4500.00
+   6	Priya Nair		     1               1000.00
+   4	Pooja Singh		     1               1000.00
+   1	Ravi Kumar		     1               900.00
+`
 
 
 
