@@ -261,3 +261,6 @@ WITH DoctorAppointments AS (
     INNER JOIN Doctors D ON DA.DoctorID = D.DoctorID
     ORDER BY DA.NumberOfAppointments DESC
 ```
+
+
+![pic](https://github.com/user-attachments/assets/2e306adf-751f-4d4e-9592-3865ac85bea1)
