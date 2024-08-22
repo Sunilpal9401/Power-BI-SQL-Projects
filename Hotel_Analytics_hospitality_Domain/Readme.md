@@ -6,9 +6,9 @@ To analyze a dataset of a hotel's operations using SQL queries to gain insights 
 
 Key Objectives:
 
-- **Data Exploration: Understand the structure, content, and relationships within the dataset.
-- **Query Development: Write SQL queries to extract relevant information and answer specific business questions.
-- **Data Analysis: Analyze the results to identify patterns, trends, and insights.
+- Data Exploration: Understand the structure, content, and relationships within the dataset.
+- Query Development: Write SQL queries to extract relevant information and answer specific business questions.
+- Data Analysis: Analyze the results to identify patterns, trends, and insights.
 
 ###Bussiness quries 
 
@@ -43,7 +43,7 @@ WHERE check_in_date BETWEEN '2024-05-25' AND '2024-06-01';
 ```
 ![image](https://github.com/user-attachments/assets/54c3b902-5422-4883-8912-2ff9cbd52847)
 
-- **Find the total revenue generated from all bookings.
+- Find the total revenue generated from all bookings.
   ```sql
   SELECT
     SUM(
@@ -51,13 +51,15 @@ WHERE check_in_date BETWEEN '2024-05-25' AND '2024-06-01';
             CASE WHEN DATEDIFF(day, check_in_date, check_out_date) = 0  THEN 1
             ELSE DATEDIFF(day, check_in_date, check_out_date)
             END * amount
-    ) AS total_revenue
-FROM
+    ) AS total_revenue FROM
     Bookings;
-```
-![image](https://github.com/user-attachments/assets/ce5faf18-e1e5-4244-9dd4-a89ab7fdff4a)
 
--Find the average stay duration of guests.
+```
+![image](https://github.com/user-attachments/assets/8788a99e-0f5f-45ff-a773-45c96d2009ae)
+
+
+
+- Find the average stay duration of guests.
 ```sql
 WITH Stay AS (
     SELECT
@@ -76,22 +78,21 @@ FROM
 ```
 ![image](https://github.com/user-attachments/assets/57b145de-f029-4e5c-9d82-5c56d136bbec)
 
-- **Find the guest who booked/Get the same room multiple times.
+- Find the guest who booked/Get the same room multiple times.
   ```sql
   SELECT  
     CONCAT(g.first_name, ' ', g.last_name) AS full_name,
     b.guest_id,
     b.room_number,
-    COUNT(*) AS booking_count
-FROM  Bookings b
-INNER JOIN Guests g ON b.guest_id = g.guest_id
-GROUP BY
-g.first_name, g.last_name, b.guest_id, b.room_number
-HAVING COUNT(*) > 1;
+    COUNT(*) AS booking_count FROM  Bookings b INNER JOIN Guests g ON b.guest_id = g.guest_id
+  GROUP BY
+  g.first_name, g.last_name, b.guest_id, b.room_number
+  HAVING COUNT(*) > 1;
 ```
+
 ![image](https://github.com/user-attachments/assets/18f9bf08-54bc-44ce-bb49-2bdce2321372)
 
-- **List the top 2 guests by total amount spent.
+- List the top 2 guests by total amount spent.
 ```sql
 SELECT TOP 2
     G.guest_id,
@@ -108,7 +109,7 @@ ORDER BY total_amount_spent DESC;
 ```
 ![image](https://github.com/user-attachments/assets/29efe0c6-2fed-4413-8052-d49bc9d6f512)
 
-- **Find the average total amount spent by guests who stayed more than 3 days.
+- Find the average total amount spent by guests who stayed more than 3 days.
   ```sql
   WITH LongStays AS (
     SELECT
@@ -119,8 +120,8 @@ ORDER BY total_amount_spent DESC;
         END AS stay_duration,
         amount
     FROM Bookings
-)
-SELECT
+  )
+  SELECT
     avg(stay_duration* Amount) AS total_amount_spent
     FROM LongStays
     WHERE stay_duration > 3;
@@ -130,7 +131,7 @@ SELECT
     - List all guests along with their total stay duration and amount across all bookings
     ```sql
     WITH LongStays AS
-(
+    (
    SELECT
    a.guest_id,
    CONCAT(first_name, ' ', last_name) AS full_name,
@@ -141,7 +142,7 @@ SELECT
    amount
    FROM Bookings a
    INNER JOIN Guests b on a.guest_id = b.guest_id
-)
+    )
     SELECT
     guest_id,
     full_name,
@@ -153,7 +154,7 @@ SELECT
  ```
 ![image](https://github.com/user-attachments/assets/12f22db6-cd65-4a80-98af-09fb3caf78b1)
 
-   - **find the city from where the most guests have stayed
+-Find the city from where the most guests have stayed
 ```sql
 SELECT TOP 1
     G.city,
