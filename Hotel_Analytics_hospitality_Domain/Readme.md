@@ -10,7 +10,7 @@ Key Objectives:
 - Query Development: Write SQL queries to extract relevant information and answer specific business questions.
 - Data Analysis: Analyze the results to identify patterns, trends, and insights.
 
-###Bussiness quries 
+### Bussiness quries 
 
 - Find the guest who has made the most bookings.
 ```sql
