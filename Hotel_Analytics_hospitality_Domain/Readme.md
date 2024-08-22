@@ -53,9 +53,9 @@ WHERE check_in_date BETWEEN '2024-05-25' AND '2024-06-01';
             END * amount
     ) AS total_revenue FROM
     Bookings;
-
 ```
-![image](https://github.com/user-attachments/assets/8788a99e-0f5f-45ff-a773-45c96d2009ae)
+-total_revenue
+-41400.00
 
 
 
@@ -90,7 +90,7 @@ FROM
   HAVING COUNT(*) > 1;
 ```
 
-![image](https://github.com/user-attachments/assets/18f9bf08-54bc-44ce-bb49-2bdce2321372)
+-There are no such guests.
 
 - List the top 2 guests by total amount spent.
 ```sql
@@ -152,7 +152,17 @@ ORDER BY total_amount_spent DESC;
 	group by guest_id, full_name
 	order by TotalStayDays desc, total_amount_spent desc, guest_id desc
  ```
-![image](https://github.com/user-attachments/assets/12f22db6-cd65-4a80-98af-09fb3caf78b1)
+guest_id	full_name	TotalStayDays	total_amount_spent
+   10	   Sunil Chopra	5	     5               6000.00
+   9	Kavita Joshi	5	     5               6000.00
+   8	Amit Verma	5	     5               6000.00
+   7	Vikas Reddy	5	     5               6000.00
+   5	Rahul Patel	5	     5               5000.00
+   3	Anil Mehta	5	     5               5000.00
+   2	Sita Sharma	5	     5               4500.00
+   6	Priya Nair	1	     1               1000.00
+   4	Pooja Singh	1	     1               1000.00
+   1	Ravi Kumar	1	     1               900.00
 
 -Find the city from where the most guests have stayed
 ```sql
