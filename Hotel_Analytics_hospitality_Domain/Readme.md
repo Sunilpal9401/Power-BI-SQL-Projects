@@ -164,7 +164,11 @@ guest_id	full_name	TotalStayDays	total_amount_spent
    4	Pooja Singh	1	     1               1000.00
    1	Ravi Kumar	1	     1               900.00
 
--Find the city from where the most guests have stayed
+
+
+
+- Find the city from where the most guests have stayed
+
 ```sql
 SELECT TOP 1
     G.city,
