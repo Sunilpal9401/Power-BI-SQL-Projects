@@ -4,7 +4,8 @@ The Employee Management System project involves creating a T-SQL database to man
 This system will enable seamless handling of employee records, salary details, and
 departmental data through well-structured SQL queries.
 
-![optimize-your-database-with-sql-expertise](https://github.com/user-attachments/assets/fadcfcd2-196f-447a-ad8d-a12222178e35)
+![Colorful Fun New Employee Onboarding Presentation](https://github.com/user-attachments/assets/7a38de22-58ed-4c66-91bc-d935a6f6b355)
+
 
 
 ## Key Objectives:
