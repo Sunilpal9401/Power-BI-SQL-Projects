@@ -1,4 +1,5 @@
-![health](https://github.com/user-attachments/assets/da804760-fc52-4951-844f-d89df2431465)
+![Blue Modern Medical Healthcare Presentation](https://github.com/user-attachments/assets/9123d6a9-c2fd-4284-8380-90e61ace3f0f)
+
 
 Cleaning the Appointments Table Data
 ```sql
