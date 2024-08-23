@@ -1,4 +1,8 @@
 # Financial Risk Analysis Project
+
+![RiskAnalysis-ezgif com-optimize](https://github.com/user-attachments/assets/6f548b41-0152-4fdf-b1f5-64be4070825f)
+
+
 ## Description:
 This repository contains a comprehensive analysis of loan risk factors in the banking sector using two datasets: `application_train.csv` and `previous_application.csv`. The project aims to provide insights into customer demographics, credit types, risk assessment, and business strategies.
 ### Part 1: Understanding the Bank
