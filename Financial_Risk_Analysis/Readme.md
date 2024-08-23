@@ -206,7 +206,7 @@ order by percentage desc
 ```
 ![1](https://github.com/user-attachments/assets/42189d6f-bc3a-45f6-b2da-869bf3c13d33)
 
-`Around 78% of the Bank's clients are/were married. `
+`Around 63% of the Bank's clients are/were married. `
 `-This could mean that the bank targets a higher age group.`
 `-The people who are Single may be sourcing money from other sources for needs - Parents, Relatives, Friends`
 `-They may be a customer of another bank`
