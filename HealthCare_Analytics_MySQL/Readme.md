@@ -1,4 +1,4 @@
-$ HealthCare Analysis Project
+# HealthCare Analysis Project
 
 ![Blue Modern Medical Healthcare Presentation](https://github.com/user-attachments/assets/6f199d58-ff42-4d06-96e4-e758a4db236f)
 
