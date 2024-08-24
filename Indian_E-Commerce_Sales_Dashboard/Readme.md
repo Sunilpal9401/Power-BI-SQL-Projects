@@ -2,7 +2,12 @@
 
 An Indian E-Commerce Sales Dashboard in Power BI can act as a powerful tool for businesses to track, analyze, and gain insights into their online sales performance.
 
-## Live DashBoard Link
+
+![Colorful Foundational Competitive Analysis Brainstorm Presentation](https://github.com/user-attachments/assets/7e22906b-9700-45bf-b2c5-bd5334074bea)
+
+
+
+# Live DashBoard Link
 [Live DashBoard Link](https://app.powerbi.com/view?r=eyJrIjoiMDUyNzUzMWEtYjNkYy00NmFmLTlmM2MtMGQ4Nzk0ZmFmZmZjIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 
 
