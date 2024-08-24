@@ -1,5 +1,6 @@
 # Music Store SQL Project 
-![images](https://github.com/user-attachments/assets/48267df0-ab9d-4d06-83fe-31b59547c23a)
+![Colorful Foundational Competitive Analysis Brainstorm Presentation (2)](https://github.com/user-attachments/assets/14f2a4ab-51e7-4476-8f1c-4548e6db1dca)
+
 
 ## Project Goal:
 To analyze a dataset of a music store using SQL queries to gain insights into customer behavior, product performance, and overall business trends.
