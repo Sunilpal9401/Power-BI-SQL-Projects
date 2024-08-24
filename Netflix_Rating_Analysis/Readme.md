@@ -2,6 +2,9 @@
 # Netflix Rating Analysis with Power BI Project Overview
 This project utilizes Microsoft's Power BI for data visualization and analysis, focusing on Netflix content ratings. Here's a breakdown of the key aspects:
 
+![Colorful Foundational Competitive Analysis Brainstorm Presentation (3)](https://github.com/user-attachments/assets/edc36b63-08ca-4bc7-8b5a-32dca4782e02)
+
+
 
 ## Objective:
 
