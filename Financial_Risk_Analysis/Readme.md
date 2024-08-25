@@ -4,7 +4,7 @@
 
 
 
-# Project overview vide
+# Project overview video
 
 https://github.com/user-attachments/assets/1d3882cd-78d8-436f-8e3c-6566394efeb0
 
