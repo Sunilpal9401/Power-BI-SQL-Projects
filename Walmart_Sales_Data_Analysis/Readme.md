@@ -146,7 +146,7 @@ $ \text{Gross Margin Percentage} = \frac{\text{gross income}}{\text{total revenu
 
 ## Code
 
-For the rest of the code, check the [SQL_queries.sql](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/Walmart_Sales_Data_Analysis/sql.sql) file
+For code, check the [SQL_queries.sql](https://github.com/Sunilpal9401/Power-BI-SQL-Projects/blob/main/Walmart_Sales_Data_Analysis/sql.sql) file
 
 ```sql
 -- Create database
@@ -173,3 +173,134 @@ CREATE TABLE IF NOT EXISTS sales(
     rating FLOAT(2, 1)
 );
 ```
+
+### Product
+
+- How many unique product lines does the data have?
+```sql
+SELECT
+	DISTINCT product_line
+FROM sales;
+```
+![image](https://github.com/user-attachments/assets/3928d3b9-95ab-4869-a8e0-91d4c2fab710)
+
+- What is the most selling product line
+```sql
+SELECT
+	SUM(quantity) as qty,
+    product_line
+FROM sales
+GROUP BY product_line
+ORDER BY qty DESC;
+```
+![image](https://github.com/user-attachments/assets/4795bfac-12c8-4d75-8b19-6169648595a1)
+
+- What is the total revenue by month
+```sql
+SELECT
+	month_name AS month,
+	SUM(total) AS total_revenue
+FROM sales
+GROUP BY month_name 
+ORDER BY total_revenue;
+```
+![image](https://github.com/user-attachments/assets/010eb78c-6bee-4167-8995-386a50657d37)
+
+- What month had the largest COGS?
+```sql
+SELECT
+	month_name AS month,
+	SUM(cogs) AS cogs
+FROM sales
+GROUP BY month_name 
+ORDER BY cogs
+```
+![image](https://github.com/user-attachments/assets/65243c07-3348-4c4a-9f0f-1ee9fcf293db)
+
+- What product line had the largest revenue?
+```sql
+SELECT
+	product_line,
+	SUM(total) as total_revenue
+FROM sales
+GROUP BY product_line
+ORDER BY total_revenue DESC;
+```
+![image](https://github.com/user-attachments/assets/fe00f656-8534-4ddc-bf9e-8d306850943c)
+
+- What is the city with the largest revenue?
+```sql
+SELECT
+	branch,
+	city,
+	SUM(total) AS total_revenue
+FROM sales
+GROUP BY city, branch 
+ORDER BY total_revenue;
+```
+![image](https://github.com/user-attachments/assets/6c8382ee-554b-4849-b019-604899cbc5c2)
+
+- What product line had the largest VAT?
+```sql
+SELECT
+	product_line,
+	MAX(tax_5) as LARGEST_tax
+FROM sales
+GROUP BY product_line
+ORDER BY LARGEST_tax DESC;
+```
+![image](https://github.com/user-attachments/assets/0247cdc0-11c1-4e2b-8e94-95388823b2c0)
+
+- Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
+```sql
+SELECT
+	product_line,
+	CASE
+		WHEN AVG(quantity) > 6 THEN 'Good'
+        ELSE 'Bad'
+    END AS remark
+FROM sales
+GROUP BY product_line;
+```
+![image](https://github.com/user-attachments/assets/4c6c1c36-7fb5-4b13-8349-d83028d7f652)
+
+- Which branch sold more products than average product sold?
+```sql
+SELECT 
+	branch, 
+    SUM(quantity) AS qnty
+FROM sales
+GROUP BY branch
+HAVING SUM(quantity)
+> 
+(SELECT AVG(quantity) FROM sales);
+```
+![image](https://github.com/user-attachments/assets/d676608b-0797-4e7e-8492-3f37740e2ca9)
+
+- What is the most common product line by gender
+```sql
+SELECT
+	gender,
+    product_line,
+    COUNT(gender) AS total_cnt
+FROM sales
+GROUP BY gender, product_line
+ORDER BY total_cnt DESC;
+```
+![image](https://github.com/user-attachments/assets/dedf9552-4c4d-41e4-9d2e-4dc4d230f0aa)
+
+- What is the average rating of each product line
+```sql
+SELECT
+	ROUND(AVG(rating), 2) as avg_rating,
+    product_line
+FROM sales
+GROUP BY product_line
+ORDER BY avg_rating DESC;
+```
+![image](https://github.com/user-attachments/assets/7e0a4ae6-52e5-4592-980f-562ebd197604)
+
+
+
+
+
