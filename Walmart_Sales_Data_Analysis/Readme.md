@@ -36,6 +36,18 @@ The dataset was obtained from the [Kaggle Walmart Sales Forecasting Competition]
 | gross_income            | Gross Income                            | DECIMAL(10, 2) |
 | rating                  | Rating                                  | FLOAT(2, 1)    |
 
+
+Viewing Full Data
+```sql
+Select * from sales
+```
+
+![image](https://github.com/user-attachments/assets/db606c41-e540-4222-a862-59f454dcb4ff)
+
+
+
+
+
 ### Analysis List
 
 1. Product Analysis
@@ -300,7 +312,203 @@ ORDER BY avg_rating DESC;
 ```
 ![image](https://github.com/user-attachments/assets/7e0a4ae6-52e5-4592-980f-562ebd197604)
 
+### Customer
+
+- How many unique customer types does the data have?
+```sql
+SELECT
+	DISTINCT customer_type
+FROM sales;
+```
+![image](https://github.com/user-attachments/assets/8b14bdc4-a00e-4829-b4cd-06ff5f8671a2)
+
+- How many unique payment methods does the data have?
+```sql
+SELECT
+	DISTINCT payment
+FROM sales;
+```
+![image](https://github.com/user-attachments/assets/fb9fd43e-0440-4393-815b-7688e988298b)
+
+- What is the most common customer type?
+```sql
+SELECT
+	customer_type,
+	count(*) as count
+FROM sales
+GROUP BY customer_type
+ORDER BY count DESC;
+```
+![image](https://github.com/user-attachments/assets/0767fdae-3bab-4258-9e27-96a21d96a121)
+
+- Which customer type buys the most?
+```sql
+SELECT
+	customer_type,
+    COUNT(*)as buys
+FROM sales
+GROUP BY customer_type
+order by buys desc;
+```
+![image](https://github.com/user-attachments/assets/f8350cb4-5f0b-421e-9724-1def8219c163)
+
+- What is the gender of most of the customers?
+```sql
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+```
+![image](https://github.com/user-attachments/assets/83a3a5cf-528c-4a0e-b066-9c5c5cf4eed7)
+
+- What is the gender distribution per branch?
+```sql
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+WHERE 
+branch = 'A' 
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+WHERE 
+branch = 'B'
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+
+SELECT
+	gender,
+	COUNT(*) as gender_cnt
+FROM sales
+WHERE 
+branch = 'C'
+GROUP BY gender
+ORDER BY gender_cnt DESC;
+```
+![image](https://github.com/user-attachments/assets/aacb3a68-c1b3-4604-bd50-799d40f18e26)
+
+Gender per branch is more or less the same hence, I don't think has
+an effect of the sales per branch and other factors.
 
 
+- Which time of the day do customers give most ratings?
+```sql
+SELECT
+	time,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY time
+ORDER BY avg_rating DESC;
+```
+![image](https://github.com/user-attachments/assets/b928e632-134d-453c-a869-fe7d17f369c4)
+
+Looks like time of the day does not really affect the rating, its
+ more or less the same rating each time of the day.
+
+ - Which time of the day do customers give most ratings per branch?
+```sql
+SELECT
+	time,
+	AVG(rating) AS avg_rating
+FROM sales
+WHERE branch = 'A'
+GROUP BY time
+ORDER BY avg_rating DESC;
+
+SELECT
+	time,
+	AVG(rating) AS avg_rating
+FROM sales
+WHERE branch = 'B'
+GROUP BY time
+ORDER BY avg_rating DESC;
+
+SELECT
+	time,
+	AVG(rating) AS avg_rating
+FROM sales
+WHERE branch = 'C'
+GROUP BY time
+ORDER BY avg_rating DESC;
+```
+![image](https://github.com/user-attachments/assets/9f137955-7679-4ccc-bd08-810edaa88dd9)
+
+Branch A and C are doing well in ratings, branch B needs to do a 
+little more to get better ratings.
+
+- Which day fo the week has the best avg ratings?
+```sql
+SELECT
+	day_name,
+	AVG(rating) AS avg_rating
+FROM sales
+GROUP BY day_name 
+ORDER BY avg_rating DESC;
+```
+![image](https://github.com/user-attachments/assets/e7a7d063-d1f5-453b-ac53-11b1cc09ee6c)
+
+Mon, Tue and Friday are the top best days for good ratings
+why is that the case, how many sales are made on these days?
+
+### Sales
+
+- Number of sales made in each time of the day per weekday 
+```sql
+SELECT
+	time,
+	COUNT(*) AS total_sales
+FROM sales
+WHERE day_name = 'Sunday'
+GROUP BY time
+ORDER BY total_sales DESC;
+```
+![image](https://github.com/user-attachments/assets/c1efbc19-08c5-485f-8f0e-8a82e80ae7e5)
+
+Evenings experience most sales, the stores are 
+filled during the evening hours.
+
+- Which of the customer types brings the most revenue?
+```sql
+SELECT
+	customer_type,
+	SUM(total) AS total_revenue
+FROM sales
+GROUP BY customer_type
+ORDER BY total_revenue;
+```
+![image](https://github.com/user-attachments/assets/64fb7505-9695-4e5e-b865-ba2bb7261c3d)
+
+- Which city has the largest tax/VAT percent?
+```sql
+SELECT
+	city,
+    ROUND(AVG(Tax_5), 2) AS avg_tax_pct
+FROM sales
+GROUP BY city 
+ORDER BY avg_tax_pct DESC;
+```
+![image](https://github.com/user-attachments/assets/6cd4a6f1-0657-4cc6-9d98-0781a93f6665)
+
+- Which customer type pays the most in VAT?
+```sql
+SELECT
+	customer_type,
+	AVG(Tax_5) AS total_tax
+FROM sales
+GROUP BY customer_type
+ORDER BY total_tax;
+```sql
+![image](https://github.com/user-attachments/assets/10e06495-aa36-40a2-a63c-b10fd18ebc23)
+
+
+
+ 
 
 
