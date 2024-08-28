@@ -504,8 +504,12 @@ SELECT
 FROM sales
 GROUP BY customer_type
 ORDER BY total_tax;
-```sql
-![image](https://github.com/user-attachments/assets/10e06495-aa36-40a2-a63c-b10fd18ebc23)
+```
+
+![image](https://github.com/user-attachments/assets/85c94cd2-bfc8-4dbb-a88b-625d893d93fe)
+
+
+
 
 
 
