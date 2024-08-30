@@ -122,36 +122,48 @@ Total Loan Applications
 ```sql
 SELECT COUNT(id) AS Total_Applications FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/526fddca-8833-4696-8877-2b7810105a7b)
+
  
 MTD Loan Applications
 ```sql
 SELECT COUNT(id) AS Total_Applications FROM financial_loan
 WHERE MONTH(issue_date) = 12
 ```
+![image](https://github.com/user-attachments/assets/7ad3ab81-c7f1-4868-a805-3feb7a258f79)
+
  
 PMTD Loan Applications
 ```sql
 SELECT COUNT(id) AS Total_Applications FROM financial_loan
 WHERE MONTH(issue_date) = 11
 ```
+![image](https://github.com/user-attachments/assets/c271c61f-dcea-407e-912e-cad4e46dca6b)
+
  
 
 Total Funded Amount
 ```sql
 SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/86ba93d0-00d9-4f1c-ba09-108629af9a7c)
+
  
 MTD Total Funded Amount
 ```sql
 SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_loan
 WHERE MONTH(issue_date) = 12
 ```
+![image](https://github.com/user-attachments/assets/8028cd10-73a3-4354-b69d-169532935ca7)
+
  
 PMTD Total Funded Amount
 ```sql
 SELECT SUM(loan_amount) AS Total_Funded_Amount FROM financial_loan
 WHERE MONTH(issue_date) = 11
 ```
+![image](https://github.com/user-attachments/assets/0a81ca23-56cd-4549-876a-feba8fb9cd3e)
+
  
 
 
@@ -159,36 +171,48 @@ Total Amount Received
 ```sql
 SELECT SUM(total_payment) AS Total_Amount_Collected FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/e356bf75-5594-4607-a4da-a7a2d374c06e)
+
  
 MTD Total Amount Received
 ```sql
 SELECT SUM(total_payment) AS Total_Amount_Collected FROM financial_loan
 WHERE MONTH(issue_date) = 12
 ```
+![image](https://github.com/user-attachments/assets/a302a269-cab2-44e7-932b-e4176cad0f43)
+
  
 PMTD Total Amount Received
 ```sql
 SELECT SUM(total_payment) AS Total_Amount_Collected FROM financial_loan
 WHERE MONTH(issue_date) = 11
 ```
+![image](https://github.com/user-attachments/assets/ac8eb248-340e-4e35-a071-a4a18ea76633)
+
  
 
 Average Interest Rate
 ```sql
 SELECT AVG(int_rate)*100 AS Avg_Int_Rate FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/746e22b8-4631-438d-95c8-cd987d2ae595)
+
  
 MTD Average Interest
 ```sql
 SELECT AVG(int_rate)*100 AS MTD_Avg_Int_Rate FROM financial_loan
 WHERE MONTH(issue_date) = 12
 ```
+![image](https://github.com/user-attachments/assets/e90cde11-329c-46b4-9ca2-6afeb71f439a)
+
  
 PMTD Average Interest
 ```sql
 SELECT AVG(int_rate)*100 AS PMTD_Avg_Int_Rate FROM financial_loan
 WHERE MONTH(issue_date) = 11
 ```
+![image](https://github.com/user-attachments/assets/4757604b-f782-4b62-89f5-cc1dd71b57d9)
+
  
 
 
@@ -199,18 +223,24 @@ Avg DTI
 ```sql
 SELECT AVG(dti)*100 AS Avg_DTI FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/8c0719fb-17c3-470b-a2af-5759aaefea12)
+
  
 MTD Avg DTI
 ```sql
 SELECT AVG(dti)*100 AS MTD_Avg_DTI FROM financial_loan
 WHERE MONTH(issue_date) = 12
 ```
+![image](https://github.com/user-attachments/assets/80fa42ab-14bb-41f6-b654-2a1f8193a7bb)
+
  
 PMTD Avg DTI
 ```sql
 SELECT AVG(dti)*100 AS PMTD_Avg_DTI FROM financial_loan
 WHERE MONTH(issue_date) = 11
  ```
+![image](https://github.com/user-attachments/assets/d743a3e4-dc75-4f37-9337-f7f0a1a46fe9)
+
 
 
 GOOD LOAN ISSUED
@@ -221,18 +251,24 @@ SELECT
 	COUNT(id) AS Good_Loan_Percentage
 FROM financial_loan
 ```
+![image](https://github.com/user-attachments/assets/43bb7d6a-51a1-4713-9faf-aebe9f9e68a1)
+
  
 Good Loan Applications
 ```sql
 SELECT COUNT(id) AS Good_Loan_Applications FROM financial_loan
 WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
 ```
+![image](https://github.com/user-attachments/assets/08bf7250-03fe-43fd-9985-8fd10b33a6d1)
+
  
 Good Loan Funded Amount
 ```sql
 SELECT SUM(loan_amount) AS Good_Loan_Funded_amount FROM financial_loan
 WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
 ```
+![image](https://github.com/user-attachments/assets/0fd0c3e4-feb1-4e6b-8d53-483b4629151b)
+
  
 
 Good Loan Amount Received
@@ -240,6 +276,8 @@ Good Loan Amount Received
 SELECT SUM(total_payment) AS Good_Loan_amount_received FROM financial_loan
 WHERE loan_status = 'Fully Paid' OR loan_status = 'Current'
 ```
+![image](https://github.com/user-attachments/assets/0f36b6a7-9d72-4565-925c-dfd6621a45e5)
+
  
 
 BAD LOAN ISSUED
@@ -250,25 +288,32 @@ SELECT
 	COUNT(id) AS Bad_Loan_Percentage
 FROM financial_loan
  ```
+![image](https://github.com/user-attachments/assets/54ce361c-d5a4-41aa-a534-c2bb75b94f20)
+
 
 Bad Loan Applications
 ```sql
 SELECT COUNT(id) AS Bad_Loan_Applications FROM financial_loan
 WHERE loan_status = 'Charged Off'
 ```
+![image](https://github.com/user-attachments/assets/91511466-5d56-470a-8583-8d89749783e0)
+
  
 Bad Loan Funded Amount
 ```sql
 SELECT SUM(loan_amount) AS Bad_Loan_Funded_amount FROM financial_loan
 WHERE loan_status = 'Charged Off'
 ```
+![image](https://github.com/user-attachments/assets/82aa3db4-328f-40a4-931d-79cbf649c551)
+
  
 Bad Loan Amount Received
 ```sql
 SELECT SUM(total_payment) AS Bad_Loan_amount_received FROM financial_loan
 WHERE loan_status = 'Charged Off'
 ```
- 
+ ![image](https://github.com/user-attachments/assets/653d0c05-27f9-4b03-9605-6ccbc7dd5b9a)
+
 
 
 
@@ -287,6 +332,8 @@ LOAN STATUS
     GROUP BY
         loan_status
 ```
+![image](https://github.com/user-attachments/assets/2ad160f3-c493-4eff-8f93-4d43d3db4a7d)
+
  
 
 ```sql
@@ -298,17 +345,7 @@ FROM financial_loan
 WHERE MONTH(issue_date) = 12 
 GROUP BY loan_status
  ```
-
-
-
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/5e5c0cb3-7558-452f-aee2-f1fb17b2da89)
 
 
 # BANK LOAN REPORT | OVERVIEW
@@ -324,15 +361,9 @@ FROM financial_loan
 GROUP BY MONTH(issue_date), DATENAME(MONTH, issue_date)
 ORDER BY MONTH(issue_date)
 ```
+![image](https://github.com/user-attachments/assets/cab45976-f07a-419b-b5ec-3a87c5af72f7)
+
  
-
-
-
-
-
-
-
-
 STATE
 ```sql
 SELECT 
@@ -344,6 +375,8 @@ FROM financial_loan
 GROUP BY address_state
 ORDER BY address_state
  ```
+![image](https://github.com/user-attachments/assets/7e291e0f-1547-4a8b-b9d1-513d861c917c)
+
 
 TERM
 ```sql
@@ -356,6 +389,8 @@ FROM financial_loan
 GROUP BY term
 ORDER BY term
  ```
+![image](https://github.com/user-attachments/assets/d8e0a1e9-2666-403c-acf3-730e7f4e76f8)
+
 
 EMPLOYEE LENGTH
 ```sql
@@ -368,6 +403,8 @@ FROM financial_loan
 GROUP BY emp_length
 ORDER BY emp_length
  ```
+![image](https://github.com/user-attachments/assets/2e91abaa-ee7d-449a-8256-41802c22647f)
+
 
 PURPOSE
 ```sql
@@ -380,6 +417,8 @@ FROM financial_loan
 GROUP BY purpose
 ORDER BY purpose
  ```
+![image](https://github.com/user-attachments/assets/368ca867-1d82-4296-96d2-1c7bda902c77)
+
 
 HOME OWNERSHIP
 ```sql
@@ -392,6 +431,8 @@ FROM financial_loan
 GROUP BY home_ownership
 ORDER BY home_ownership
  ```
+![image](https://github.com/user-attachments/assets/62cf5cc5-1fda-4f15-b7eb-20b5288d6f7d)
+
 
 ### Note: We have applied multiple Filters on all the dashboards. You can check the results for the filters as well by modifying the query and comparing the results.
 For e.g
