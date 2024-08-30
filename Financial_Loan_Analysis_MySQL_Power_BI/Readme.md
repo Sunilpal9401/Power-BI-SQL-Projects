@@ -11,9 +11,9 @@ In order to monitor and assess our bank's lending activities and performance, we
 
 - 3.Total Amount Received: Tracking the total amount received from borrowers is essential for assessing the bank's cash flow and loan repayment. We should analyse the Month-to-Date (MTD) Total Amount Received and observe the Month-over-Month (MoM) changes.
 
--4.Average Interest Rate: Calculating the average interest rate across all loans, MTD, and monitoring the Month-over-Month (MoM) variations in interest rates will provide insights into our lending portfolio's overall cost.
+- 4.Average Interest Rate: Calculating the average interest rate across all loans, MTD, and monitoring the Month-over-Month (MoM) variations in interest rates will provide insights into our lending portfolio's overall cost.
 
--5.Average Debt-to-Income Ratio (DTI): Evaluating the average DTI for our borrowers helps us gauge their financial health. We need to compute the average DTI for all loans, MTD, and track Month-over-Month (MoM) fluctuations.
+- 5.Average Debt-to-Income Ratio (DTI): Evaluating the average DTI for our borrowers helps us gauge their financial health. We need to compute the average DTI for all loans, MTD, and track Month-over-Month (MoM) fluctuations.
 
 
 
@@ -43,13 +43,13 @@ In order to evaluate the performance of our lending activities and assess the qu
 
 ## Loan Status Grid View
 In order to gain a comprehensive overview of our lending operations and monitor the performance of loans, we aim to create a grid view report categorized by 'Loan Status.' This report will serve as a valuable tool for analysing and understanding the key indicators associated with different loan statuses. By providing insights into metrics such as 
-- Total Loan Applications,
-- Total Funded Amount,'
-- Total Amount Received,
--Month-to-Date (MTD) Funded Amount,
--MTD Amount Received,
--Average Interest Rate,
--Average Debt-to-Income Ratio (DTI), 
+- Total Loan Applications
+- Total Funded Amount
+- Total Amount Received
+- Month-to-Date (MTD) Funded Amount
+- MTD Amount Received
+- Average Interest Rate
+- Average Debt-to-Income Ratio (DTI)
 this grid view will empower us to make data-driven decisions and assess the health of our loan portfolio.
 
 
@@ -64,35 +64,40 @@ Chart Type: Line Chart
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 X-Axis: Month (based on 'Issue Date')
 Y-Axis: Metrics' Values
-Objective: This line chart will showcase how 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received' vary over time, allowing us to identify seasonality and long-term trends in lending activities.
+
+**Objective:** This line chart will showcase how 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received' vary over time, allowing us to identify seasonality and long-term trends in lending activities.
 
 - 2. Regional Analysis by State (Filled Map):
 Chart Type: Filled Map
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 Geographic Regions: States
-Objective: This filled map will visually represent lending metrics categorized by state, enabling us to identify regions with significant lending activity and assess regional disparities.
+
+**Objective:** This filled map will visually represent lending metrics categorized by state, enabling us to identify regions with significant lending activity and assess regional disparities.
 
 - 3. Loan Term Analysis (Donut Chart):
 Chart Type: Donut Chart
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 Segments: Loan Terms (e.g., 36 months, 60 months)
-Objective: This donut chart will depict loan statistics based on different loan terms, allowing us to understand the distribution of loans across various term lengths.
 
--4. Employee Length Analysis (Bar Chart):
+**Objective:** This donut chart will depict loan statistics based on different loan terms, allowing us to understand the distribution of loans across various term lengths.
+
+- 4. Employee Length Analysis (Bar Chart):
 Chart Type: Bar Chart
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 X-Axis: Employee Length Categories (e.g., 1 year, 5 years, 10+ years)
 Y-Axis: Metrics' Values
-Objective: This bar chart will illustrate how lending metrics are distributed among borrowers with different employment lengths, helping us assess the impact of employment history on loan applications.
 
-=5. Loan Purpose Breakdown (Bar Chart):
+**Objective:** This bar chart will illustrate how lending metrics are distributed among borrowers with different employment lengths, helping us assess the impact of employment history on loan applications.
+
+- 5. Loan Purpose Breakdown (Bar Chart):
 Chart Type: Bar Chart
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 X-Axis: Loan Purpose Categories (e.g., debt consolidation, credit card refinancing)
 Y-Axis: Metrics' Values
-Objective: This bar chart will provide a visual breakdown of loan metrics based on the stated purposes of loans, aiding in the understanding of the primary reasons borrowers seek financing.
 
--6. Home Ownership Analysis (Tree Map):
+**Objective:** This bar chart will provide a visual breakdown of loan metrics based on the stated purposes of loans, aiding in the understanding of the primary reasons borrowers seek financing.
+
+- 6. Home Ownership Analysis (Tree Map):
 Chart Type: Tree Map
 Metrics: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
 Hierarchy: Home Ownership Categories (e.g., own, rent, mortgage)
@@ -104,5 +109,5 @@ These diverse chart types will enhance our ability to visualize and communicate 
 # DASHBOARD 3: DETAILS
 In our Bank Loan Report project, we recognize the need for a comprehensive 'Details Dashboard' that provides a consolidated view of all the essential information within our loan data. This Details Dashboard aims to offer a holistic snapshot of key loan-related metrics and data points, enabling users to access critical information efficiently.
 
-*Objective:*
+**Objective:**
 The primary objective of the Details Dashboard is to provide a comprehensive and user-friendly interface for accessing vital loan data. It will serve as a one-stop solution for users seeking detailed insights into our loan portfolio, borrower profiles, and loan performance.
