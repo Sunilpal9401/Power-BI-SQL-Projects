@@ -4,6 +4,12 @@ Our company is a car dealership that sells various car models. To effectively tr
 ##  Objective: 
 The objective of this project is to design and develop a dynamic and interactive Car Sales Dashboard using Power BI. The dashboard will visualize critical KPIs related to our car sales, helping us understand our sales performance over time and make data-driven decisions.
 
+
+# Live Dashboard Link
+
+[Live dashboard Link](https://project.novypro.com/RDnzmU)
+
+
 ## Dashboard overview video
 
 https://github.com/user-attachments/assets/a76aa892-c408-4d26-9deb-0af6f29f009a
