@@ -1,4 +1,9 @@
-# Project Goal : 
+# Card Spends in India Analysis
+
+![Card Spend](https://github.com/user-attachments/assets/5c6f0d68-2011-4945-aece-8734f4686125)
+
+
+## Project Goal : 
 Card spend analysis using SQL involves examining transaction data from credit or debit card records to gain insights into spending patterns, trends, and anomalies in India.
 The Dataset was Extracted from Kaggle : 
 
