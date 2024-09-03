@@ -20,6 +20,26 @@ Before we start writing SQL queries, it's essential to understand the structure 
 
 `amount` : Amount spent in the transaction by the user.
 
+
+## Raw_Data
+
+![image](https://github.com/user-attachments/assets/ba6ca02a-7525-4c63-8508-112685cdd029)
+
+
+
+## Cleaning_data :
+- Removed/renamed columns as per need.
+- Fixed Date coloumn as it showing general format to Date format
+- Converted date format to the standard form.
+- Did data standardization
+- Checked for Null/missing values
+- Checked for duplicates
+- Checked Query Execution Plan
+- Did Query Optimization
+- Created index on required coloums so that queries run faster.
+
+
+## Cleaned_Data
 ![1](https://github.com/user-attachments/assets/276d3473-8f96-4e50-8ddf-00e28c204c81)
 
 
