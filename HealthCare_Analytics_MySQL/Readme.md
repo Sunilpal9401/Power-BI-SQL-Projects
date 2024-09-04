@@ -1,5 +1,7 @@
 # HealthCare Analysis Project
 
+A HealthCare Analysis project using SQL involves querying and analyzing healthcare data to gain insights into patient demographics, treatment outcomes, hospital performance, and cost efficiency. The process typically includes tasks such as cleaning and normalizing data, joining multiple tables, and writing SQL queries to extract and aggregate key metrics like patient admission rates, average treatment costs, and readmission frequencies. The analysis may also involve identifying trends in patient care, assessing the effectiveness of different treatments, and supporting data-driven decisions for improving healthcare services, patient outcomes, and operational efficiency
+
 ![Blue Modern Medical Healthcare Presentation](https://github.com/user-attachments/assets/6f199d58-ff42-4d06-96e4-e758a4db236f)
 
 
