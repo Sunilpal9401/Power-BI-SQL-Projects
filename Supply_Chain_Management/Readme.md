@@ -6,7 +6,7 @@ Supply Chain Management for Cars in Power BI provides a comprehensive overview o
 Using Power BI, companies can visualize key supply chain metrics such as inventory levels, production schedules, delivery performance, and supplier quality. They can also analyze historical data to identify trends, optimize operations, and make informed decisions to improve efficiency and reduce costs throughout the supply chain. 
 
 # Live Dashboard
-[Live Dashboard]()
+[Live Dashboard](https://project.novypro.com/YJFNiJ)
 
 
 ### Overview video
