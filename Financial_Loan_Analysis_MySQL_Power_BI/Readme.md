@@ -51,6 +51,9 @@ In order to evaluate the performance of our lending activities and assess the qu
 
 - 4.Bad Loan Total Received Amount: Tracking the total amount received from borrowers for 'Bad Loans,' which includes all payments made on loans with a loan status of 'Charged Off.'
 
+![Bank Loan1](https://github.com/user-attachments/assets/2a4773fd-15cd-454b-a4fb-705f9e3e2f28)
+
+
 ## Loan Status Grid View
 In order to gain a comprehensive overview of our lending operations and monitor the performance of loans, we aim to create a grid view report categorized by 'Loan Status.' This report will serve as a valuable tool for analysing and understanding the key indicators associated with different loan statuses. By providing insights into metrics such as 
 - Total Loan Applications
@@ -115,12 +118,17 @@ Hierarchy: Home Ownership Categories (e.g., own, rent, mortgage)
 **Objective:** This tree map will display loan metrics categorized by different home ownership statuses, allowing for a hierarchical view of how home ownership impacts loan applications and disbursements.
 These diverse chart types will enhance our ability to visualize and communicate loan-related insights effectively, supporting data-driven decisions and strategic planning within our lending operations."
 
+![image](https://github.com/user-attachments/assets/d4dc4a7b-a362-49d5-92dd-d6c9b9a4e617)
+
 
 # DASHBOARD 3: DETAILS
 In our Bank Loan Report project, we recognize the need for a comprehensive 'Details Dashboard' that provides a consolidated view of all the essential information within our loan data. This Details Dashboard aims to offer a holistic snapshot of key loan-related metrics and data points, enabling users to access critical information efficiently.
 
+![image](https://github.com/user-attachments/assets/9c82f169-1973-4325-90d7-5d5ceba925c8)
+
 **Objective:**
 The primary objective of the Details Dashboard is to provide a comprehensive and user-friendly interface for accessing vital loan data. It will serve as a one-stop solution for users seeking detailed insights into our loan portfolio, borrower profiles, and loan performance.
+
 
 # | FINANCIAL LOAN MySQL REPORT |
 
