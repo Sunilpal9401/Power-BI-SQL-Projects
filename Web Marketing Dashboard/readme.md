@@ -2,6 +2,14 @@
 
 A web marketing dashboard in Power BI is a centralized platform that visually represents key performance indicators (KPIs) and metrics related to digital marketing efforts. It helps marketers track, analyze, and optimize their online campaigns and overall digital presence. Here's a summary of what such a dashboard might include:
 
+
+# Live Dashboard
+
+[Live DashBoard Link](https://project.novypro.com/YJFNiJ)
+
+
+
+
 ## Dashboard overview 
 
 
