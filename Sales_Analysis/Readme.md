@@ -1,4 +1,12 @@
-# Challenges
+# Car Sales Dashboard
+
+
+
+
+
+
+
+## Challenges
 Our company is a car dealership that sells various car models. To effectively track and analyse our sales performance, we need a comprehensive Car Sales Dashboard in Power BI. 
 
 ##  Objective: 
@@ -64,10 +72,15 @@ The dashboard should provide real-time insights into key performance indicators 
 #### **4.YTD Cars Sold by Dealer Region:**
 -  Showcase the YTD sales data based on different dealer regions using a map chart to visualize the sales distribution geographically.
   
+![car1](https://github.com/user-attachments/assets/21d8fd08-623d-4ca8-8a1d-1bb0f7256c7a)
+
+
+
 #### **5.Company-Wise Sales Trend in Grid Form:**
 -  Provide a tabular grid that displays the sales trend for each company. The grid should showcase the company name along with their YTD sales figures.
   
 #### **6.Details Grid Showing All Car Sales Information:**
 -  Create a detailed grid that presents all relevant information for each car sale, including car model, body style, colour, sales amount, dealer region, date, etc.
 
+![car2](https://github.com/user-attachments/assets/4e4c7cd0-49dd-402b-9af2-4fa6bb909fa3)
 
